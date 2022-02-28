@@ -1,0 +1,57 @@
+---PROMİSES
+
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((data) => data.json()) //Bu then yukardaki fetch bir promises(vaat) dönüyor demek oluyor.
+.then((users) => {
+ console.log("Users yüklendi!", users);
+
+//Örnek: Fonksiyon tanımlayalım.
+
+const getComments = () => {
+ //Burada bir promises return etmemiz gerekiyor. Bu işlemi yapabilmemiz için
+ return new Promise((resolve, reject) => {
+  console.log("comments");
+});
+};
+
+getComments().then(() => console.log("bitti"));
+
+---RESOLVE DEMEK:
+-Bu işlem başarıyla gerçekleşmiş al sana data demek.
+
+---REJECT İSE:
+-Bu kod çalışırken bir problem oluştu bunu reject(red) ettim demek oluyor.
+
+---Bir promises resolve olduğunda
+.then() içine düşer
+
+---Reject olduğundada
+.catch() içine düşer (buradada hata yakalanır.)
+
+---Promises'i resolve ederken parametre geçilebilir.
+//Örnek:
+
+const getComments = () => {
+ return new Promise((resolve, reject) => {
+  if (number === 1) {
+    resolve({ text: "Selam" });//Burada number string obje hepsi döndürülebilir.
+  }
+ 
+  reject("Bir problem oluştu!");
+ });
+};
+
+getComments(2)
+.then((data) => console.log(data))
+.catch((e) => console.log(e));
+
+
+
+
+
+
+
+
+
+
+

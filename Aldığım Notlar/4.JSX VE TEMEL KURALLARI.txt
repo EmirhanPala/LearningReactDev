@@ -1,0 +1,28 @@
+JSX NEDİR?
+
+.js Uzantılı dosyamız var fakat içerisinde "HTML" ifadeler var.
+.js Uzantılı dosya bu "HTML" ifadeleri nasıl anlıyor(yorumluyor)?
+
+"JSX"i kullanarak "HTML" yazar gibi "JS" yazabiliyoruz.
+
+Örnek:
+return (
+  <div>
+  
+  </div>
+); //Bu çalıştığında çalıştırılabilir bir js fonksiyonu arka planda getiriliyor.
+Yukarıdaki kodu yazdığımızda aslında arka tarafta iş şuna dönüştürülüyor.
+return React.createElement("div", null, "Hello");
+
+---FARK NEDİR?
+Kodları yazarken bu "COMPONENT"leri oluştururken oldukça konforlu bir şekilde
+yapma fırsatı yakalıyoruz.
+
+Burada yazılanlar "HTML" değil | "HTML" görünümlü "JS"dir.
+
+
+
+
+
+
+

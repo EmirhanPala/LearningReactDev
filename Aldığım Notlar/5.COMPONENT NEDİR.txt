@@ -1,0 +1,8 @@
+Compenent Nedir?:
+Geliştirirken gerçekleştirilecek en küçük yapı ve birim için birer compenents geliştirip daha sonra onları tek bir
+compenents altında birleştirerek görüntüleyeceğiz.
+Yapıcağımız projelerde sürekli bir hareket olacak.
+Sürekli bir şeyler güncellenecek, silenecek, eklenicek, güncellenicek bir sürü şey olacak.
+Bu işlemleri en iyi şekilde en performanslı şekilde kullanıcılarımıza gösterebilmek için REACT gibi projelere ihtiyacımız var.
+Büyükleri meydana getiren küçükler.
+Büyük dediğimiz şey küçüklerin bir araya gelerek oluşturmuş olduğu yapılardır.

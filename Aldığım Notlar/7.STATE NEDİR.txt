@@ -1,0 +1,18 @@
+Componentlerimiz üzerinde değerinin değişme potansiyeli olan bütün verileri tutan 
+javascript objesi olarak nitelendirilebilir.
+Componentin her hangi bir anında değeri değişme potansiyeli olan bir veri state olarak tanımlanır
+ve bu state değiştiği andada ilgili component render edilerek değişim ekrana yansıtılmış olur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

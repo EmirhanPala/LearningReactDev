@@ -1,0 +1,24 @@
+REAL DOM (GERÇEK DOM) KAVRAMLARI
+
+-Bir web sayfasına girdiğimizde DEVTOOL(Öğeyi Denetle) açtığımızda görünen hiyerarşik "HTML" etiketlerinin-
+bütününe "REAL DOM" deniyor.
+
+
+VİRTUAL DOM (SANAL DOM) KAVRAMLARI
+
+-"REAL DOM"un bir kopyası aynısı sadece bu bir js objesi olarak tutuluyor. React tarafında
+
+---Yaptığı Nedir?
+-Ekranımızda bir güncelleme işlemi olduğu anda (Bir veri güncellenecekse) "React" gidip.
+"VİRTUAL DOM"u ve "REAL DOM"u karşılaştırıyor.
+Eğer bunların arasında bir fark varsa (sadece farklı olan kısmı getirip) "REAL DOM"a yazıyor.
+
+---Bunu yapmasının Sebebi?
+Gereksiz yere "RENDER"in önüne geçmek. 
+Aynı zamanda (Sadece güncellenmesi gereken alanların güncellenmesi sağlıyabilmek)
+O yüzden "REAL DOM"un bir klonu "REACT" tarafında tutuluyor. (JS Objesi olarak)
+Sonrasında bir güncelleme işlemi olduğu anda "REACT"in kendi içindeki farklılık algoritmaları çalıştırılıyor.
+Eğer bir farklılık varsa o farklılık getirilip. "REAL DOM"a yansıtılıyor.
+
+
+
