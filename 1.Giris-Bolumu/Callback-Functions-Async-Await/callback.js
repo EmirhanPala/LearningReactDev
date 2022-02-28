@@ -70,7 +70,7 @@ Yazdığımız kodu kullanabilmemiz için node-fetch kurmamız gerekiyor.
 Terminale: "npm i node-fetch" yazıp modülü yüklüyoruz.
 */
 
-import fetch from "node-fetch";
+// import fetch from "node-fetch";
 
 // fetch("https://jsonplaceholder.typicode.com/users") //Api'den bize data döndükten, (response döndükten) sonra 
 //     .then((data) => data.json()) //(data)'ya apiden ne geliyorsa o getiriliyor. Sonra bu native fetch kütüphanesi bize doğrudan json dönmüyor.
@@ -171,15 +171,41 @@ Yada şöyle bir durumda mümkün fetch işleminde karmaşıklık görüyorsanı
 //İllada bu isimde bir fonksiyonunuzun olmasını istiyorsanız anonim fonksiyon oluşturabilirsiniz.
 //ÖRNEK:
 
-(async () => {
-    const users = await (await fetch("https://jsonplaceholder.typicode.com/users")).json();
-    const post1 = await (await fetch("https://jsonplaceholder.typicode.com/posts/1")).json();
-    const post2 = await (await fetch("https://jsonplaceholder.typicode.com/posts/2")).json();
+// (async () => {
+//     const users = await (await fetch("https://jsonplaceholder.typicode.com/users")).json();
+//     const post1 = await (await fetch("https://jsonplaceholder.typicode.com/posts/1")).json();
+//     const post2 = await (await fetch("https://jsonplaceholder.typicode.com/posts/2")).json();
 
-    console.log(users);
-    console.log(post1);
-    console.log(post2);
-})();
+//     console.log(users);
+//     console.log(post1);
+//     console.log(post2);
+// })();
 
 //Ve şimdi çalıştırdığımızdada yine aynı sonucu görüyoruz.
+
+//Axios kullanımı
+//Terminalimize: "npm i axios" yazıyoruz ve kütüphanemizi kuruyoruz. 
+// import axios from "axios";
+// //Yukarıda yazdığımız kodu fetch'den axios'a devşiricez.
+// (async () => {
+//     const { data: users } = await axios("https://jsonplaceholder.typicode.com/users");
+//     const { data: post1 } = await axios("https://jsonplaceholder.typicode.com/posts/1");
+//     const { data: post2 } = await axios("https://jsonplaceholder.typicode.com/posts/2");
+//     //Axiosda bunların altında bire data geliyor. Yani data adında bir field(alan) getiriyor.
+//     console.log("users", users);
+//     console.log("post1", post1);
+//     console.log("post2", post2);
+// })();
+
+
+
+
+
+
+
+
+
+
+
+
 
