@@ -1,0 +1,10 @@
+React projesini ayağa kaldırmak için facebook'un bize vermiş olduğu create-react-app repoyu kullanıcaz.
+Repo Link: https://github.com/facebook/create-react-app
+
+---TERMİNAL KOMUTLARI
+
+-Yeni proje oluşturmak için
+|npx create-react-app project name
+
+-Projeyi çalıştırmak için
+|npm start
