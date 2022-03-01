@@ -1,15 +1,21 @@
 import './App.css';
 
-//Componentlerde değişken render etmek
 const name = "Emirhan";
 const surname = "Pala";
+//Koşullu render işlemi
+const isLoggedIn = false;
+
 
 function App() {
   return (
     <>
-      <h1>{name} {surname}</h1>
-
-      <h1>{`Benim adım ${name}, soyadım ${surname}`}</h1>
+      <h1>
+        {isLoggedIn && `Benim adım ${name}, soyadım ${surname}`}
+        {!isLoggedIn && "Giriş Yapmadınız."}
+        <br/>
+        {isLoggedIn ? `Benim adım ${name}, soyadım ${surname}` : "Giriş Yapmadınız."}
+        
+      </h1>
     </>
   );
 }
