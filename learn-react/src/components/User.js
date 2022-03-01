@@ -1,3 +1,16 @@
+/*
+Prop Types:
+Componentlere gönderdiğimiz propertylerin tiplerini belirleyebileceğimiz bir araç var.
+Adı: Prop-Types 
+Yaptığı İşlem:
+App.JS'den gönderdiğimiz propertyleri örnek name string, surname string, isLoggedIn bool, age number ve friends array olarak gönderiliyor.
+Bu yazdığımız componentleri sadece biz kullanmıyacağız bir takım arkadaşımız kullanabilir. Veya bu componenti bütün dünya ile paylaşabiliriz.
+Bütün insanlık bunu kullanabilir. Dolayısıyla biz hangi property'de hangi veri tipini aldığımızı(kabul ettiğimizi) componentte belirtmemiz lazım.
+Nasıl Kullanılır?
+*/
+
+import PropTypes from "prop-types";
+
 function User({ name, surname, isLoggedIn, age, friends }) {
     //console.log(props);
     return (
@@ -9,18 +22,20 @@ function User({ name, surname, isLoggedIn, age, friends }) {
             </h1>
 
             {
-                //Örnek 2:
-                //friends.map((friend) => <div key={friend.id}>{friend.id} - {friend.name}</div>)
-                //Örnek 3: Böylede yazdırılabilir.
                 friends.map((friend) => {
                 return <div key={friend.id}>{friend.id} - {friend.name}</div>
                 })
-
-                //Örnek 1:
-                //friends.map((friend, index) => <div key={index}>{index} - {friend}</div>)
             }
         </>
     );
+}
+
+User.propTypes = {
+ name: PropTypes.string,
+ surname: PropTypes.string,
+ isLoggedIn: PropTypes.bool,
+ age: PropTypes.number,
+ friend: PropTypes.array,
 }
 
 export default User;
