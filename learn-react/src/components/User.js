@@ -1,12 +1,6 @@
 /*
-Prop Types:
-Componentlere gönderdiğimiz propertylerin tiplerini belirleyebileceğimiz bir araç var.
-Adı: Prop-Types 
-Yaptığı İşlem:
-App.JS'den gönderdiğimiz propertyleri örnek name string, surname string, isLoggedIn bool, age number ve friends array olarak gönderiliyor.
-Bu yazdığımız componentleri sadece biz kullanmıyacağız bir takım arkadaşımız kullanabilir. Veya bu componenti bütün dünya ile paylaşabiliriz.
-Bütün insanlık bunu kullanabilir. Dolayısıyla biz hangi property'de hangi veri tipini aldığımızı(kabul ettiğimizi) componentte belirtmemiz lazım.
-Nasıl Kullanılır?
+Prop Types: isRequired
+Bu koşulu eklediğimizde değerlerin girileceği alanlar zorunlu hale geliyor.
 */
 
 import PropTypes from "prop-types";
@@ -31,10 +25,10 @@ function User({ name, surname, isLoggedIn, age, friends }) {
 }
 
 User.propTypes = {
- name: PropTypes.string,
- surname: PropTypes.string,
- isLoggedIn: PropTypes.bool,
- age: PropTypes.number,
+ name: PropTypes.string.isRequired,
+ surname: PropTypes.string.isRequired,
+ isLoggedIn: PropTypes.bool.isRequired,
+ age: PropTypes.number.isRequired,
  friend: PropTypes.array,
 }
 
