@@ -1,21 +1,23 @@
 import './App.css';
+import User from './components/User';
 
-const name = "Emirhan";
-const surname = "Pala";
-//Koşullu render işlemi
-const isLoggedIn = false;
+/*
+Kendi yazdığımız componentlerde parametreler ve propertyler geçebiliriz.
 
+Bool değer göndereceğimiz için bunu string olarak gönderemeyiz.
+Bu yüzden {false} süslü parantezlerin içerisinde false veya true yazarak gönderebililiriz.
+Aynı şekilde bir sayı göndereceğimiz zamandada süslü parantezler içerisinde gönderebiliriz.
+String ifadelerde aynı şekilde gönderilebilir ama string gördediğimiz için çokta bir anlamı yok.
+
+Propslar bu şekilde yazdığınız componentlere her hangi bir parametre geçip onu yazmış olduğunuz component'de karşılayıp
+kullanabiliyorsunuz.
+*/
 
 function App() {
   return (
     <>
-      <h1>
-        {isLoggedIn && `Benim adım ${name}, soyadım ${surname}`}
-        {!isLoggedIn && "Giriş Yapmadınız."}
-        <br/>
-        {isLoggedIn ? `Benim adım ${name}, soyadım ${surname}` : "Giriş Yapmadınız."}
-        
-      </h1>
+      <User name="Emirhan" surname="Pala" isLoggedIn={true} age={25} />
+
     </>
   );
 }
