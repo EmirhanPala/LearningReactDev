@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
 /*
-Prop Types: oneOfType
-Bir property'de birden fazla veri tipinin gönderilmesine imkan tanımak için oneOfType adında bir tanımımız daha var.
-Örnek: age ile matematiksel işlem yapmıyacaksak eğer hem string hemde number kabul edebiliriz.
-oneOfType ile birden fazla veri tipi kabul edilebilir.
+shape
+Obje olarak gönderdiğimiz propertylerde kullanabileceğimiz shape adında bir tanım daha var.
 */
-function User({ name, surname, isLoggedIn, age, friends }) {
+
+function User({ name, surname, isLoggedIn, age, friends, adress }) {
     //console.log(props);
     return (
         <>
@@ -15,6 +14,9 @@ function User({ name, surname, isLoggedIn, age, friends }) {
                 }
             </h1>
 
+            {adress.title} {adress.zip}
+            <br/>
+            <br/>
             {
                 friends.map((friend) => {
                     return <div key={friend.id}>{friend.id} - {friend.name}</div>
@@ -30,9 +32,13 @@ User.propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     age: PropTypes.oneOfType([
         PropTypes.number,
-        propTypes.string
+        PropTypes.string
     ]).isRequired,
     friend: PropTypes.array,
+    adress: PropTypes.shape({
+        title: PropTypes.string,
+        zip: PropTypes.number
+    })
 }
 
 export default User;
