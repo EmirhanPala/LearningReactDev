@@ -2,24 +2,48 @@ import './App.css';
 import User from './components/User';
 
 /*
-Kendi yazdığımız componentlerde parametreler ve propertyler geçebiliriz.
-
-Bool değer göndereceğimiz için bunu string olarak gönderemeyiz.
-Bu yüzden {false} süslü parantezlerin içerisinde false veya true yazarak gönderebililiriz.
-Aynı şekilde bir sayı göndereceğimiz zamandada süslü parantezler içerisinde gönderebiliriz.
-String ifadelerde aynı şekilde gönderilebilir ama string gördediğimiz için çokta bir anlamı yok.
-
-Propslar bu şekilde yazdığınız componentlere her hangi bir parametre geçip onu yazmış olduğunuz component'de karşılayıp
-kullanabiliyorsunuz.
+Şimdi elimizdeki bu componente bir array geçicez.
+Yani prop olarak array vericez bu array'i componentin altında listelemeye çalışacağız.
 */
+const friends = [
+  {
+    id:1,
+    name:"Emirhan"
+  },
+  {
+    id:2,
+    name:"Sercan"
+  },
+  {
+    id:3,
+    name:"Deneme"
+  },
+  {
+    id:4,
+    name:"Test"
+  }
+];
 
+//Örnek 2:
 function App() {
   return (
     <>
-      <User name="Emirhan" surname="Pala" isLoggedIn={true} age={25} />
+      <User name="Emirhan" surname="Pala" isLoggedIn={true} age={25} friends={friends} />
 
     </>
   );
 }
+
+/*
+Örnek 1:
+function App() {
+  return (
+    <>
+      <User name="Emirhan" surname="Pala" isLoggedIn={true} age={25} friends={["Sercan", "Deneme", "Test", "Test2", "Test3", "Test4"]} />
+
+    </>
+  );
+}
+*/
 
 export default App;

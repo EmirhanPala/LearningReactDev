@@ -1,34 +1,26 @@
-/*
-Gönderdiğimiz bütün propertyler fonksiyonumuzda yazıcağımız props paremetresine düşüyor.
-function User(props) kullanıp bütün değişkenlerin başına props yazmak yerine
-props'un bir obje olduğunu biliyoruz o yüzden 
-function User({name, surname, isLoggedIn}) şeklindede kullanabiliriz.
-*/
-
-//Örnek2:
-//Burada gönderilen propertylerin sırasıyla karşıladığımız sıranın hiç bir anlamı(önemi) yok her hangi bir sırayla alıp kullanılabilir.
-function User({name, surname, isLoggedIn, age}) {
+function User({ name, surname, isLoggedIn, age, friends }) {
     //console.log(props);
-    return(
-    <h1>
-        {
-            isLoggedIn ? `${name} ${surname} ${age}` : "Giriş yapmadınız."
-        }
-    </h1>
+    return (
+        <>
+            <h1>
+                {
+                    isLoggedIn ? `${name} ${surname} ${age}` : "Giriş yapmadınız."
+                }
+            </h1>
+
+            {
+                //Örnek 2:
+                //friends.map((friend) => <div key={friend.id}>{friend.id} - {friend.name}</div>)
+                //Örnek 3: Böylede yazdırılabilir.
+                friends.map((friend) => {
+                return <div key={friend.id}>{friend.id} - {friend.name}</div>
+                })
+
+                //Örnek 1:
+                //friends.map((friend, index) => <div key={index}>{index} - {friend}</div>)
+            }
+        </>
     );
 }
-
-/* Örnek1:
-function User(props) {
-    //console.log(props);
-    return(
-    <h1>
-        {
-            props.isLoggedIn ? `${props.name} ${props.surname}` : "Giriş yapmadınız."
-        }
-    </h1>
-    );
-}
-*/
 
 export default User;
