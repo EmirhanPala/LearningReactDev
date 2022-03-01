@@ -1,0 +1,39 @@
+---React'ın en temel yapı taşı olan componentler nedir?
+-Büyük dediğimiz şey aslında küçüklerin bir araya gelmesiyle oluşmuş yapılardır.
+
+---Ne demek bu?
+Maddeyi düşünün
+Maddeyi meydana getiren en temel yapı taşı nedir?
+-Atom
+Atom'u meydana getiren nedir?
+Kabaca: electron, proton, nötron diyebiliriz.
+Yani sürekli iç içe bir dizilim var.
+
+Bu bilgi bir kenarda kalsın
+https://miro.medium.com/max/1400/1*V3ZOFh5Ed4MLCIgi6FnLmA.jpeg
+Görseli inceleyin.
+
+Resimdeki sağ kısmı web sayfasının tamamı olarak hayal edin.
+Bu web sayfasının üstünde slider var. Altında görsel, onun altında parağraf ve en alttada görsel olduğunu farz edebiliriz.
+
+Peki bizim bu web sayfamızın tamamını meydana getiren şey nedir?
+Sol tarafta numaralandırılmış bileşenler aslında bizim sağ taraftaki web sayfamızı meydana getiren yapılar.
+
+Sol tarafta bileşenler hazırlanmış ve sağ tarafta kullanılmış.
+
+Baktığımız zaman bunlar bir araya geldiğinde bir web sayfası ortaya çıkıyor.
+
+Bizde aynı burada gördüğümüz şekilde react projeleri geliştirirken yapacağımız(gerçekleştirilecek) en küçük yapı ve birim için birer component-
+geliştirip daha sonra onları tek bir component altında birleştirerek görüntüleyeceğiz demek oluyor.
+
+
+
+
+
+
+
+
+
+
+
+
