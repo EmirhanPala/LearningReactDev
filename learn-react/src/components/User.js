@@ -1,20 +1,26 @@
 import PropTypes from "prop-types";
 /*
-shape
-Obje olarak gönderdiğimiz propertylerde kullanabileceğimiz shape adında bir tanım daha var.
+Default Props
+Her hangi bir tanım yapılmamış. Bir prop'a varsayılan bir değerde verebiliyoruz.
+Örnek:
+Değer yazılmamış prop'a veya prop gönderilmemiş ise otomatik olarak varsayılan atadığımız değeri veriyor.
+
 */
 
 function User({ name, surname, isLoggedIn, age, friends, adress }) {
     //console.log(props);
+    if (!isLoggedIn){
+        return <div>Giriş yapmadınız.</div>
+    }
     return (
         <>
             <h1>
                 {
-                    isLoggedIn ? `${name} ${surname} ${age}` : "Giriş yapmadınız."
+                    `${name} ${surname} ${age}`
                 }
             </h1>
 
-            {adress.title} {adress.zip}
+            
             <br/>
             <br/>
             {
@@ -37,8 +43,12 @@ User.propTypes = {
     friend: PropTypes.array,
     adress: PropTypes.shape({
         title: PropTypes.string,
-        zip: PropTypes.number
-    })
+        zip: PropTypes.number,
+    }),
+};
+
+User.defaultProps = {
+    isLoggedIn: false
 }
 
 export default User;
