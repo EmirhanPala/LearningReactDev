@@ -1,0 +1,4 @@
+React componentleri üzerindeki yaşam döngüleri
+
+Componentler DOM'a mount olduğu anda componentin üzerindenki bir state değiştiği anda aldığı bir prop değiştiği anda veya
+unmount olduğu anda(DOM)'dan kaldırıldığı anda biz bu durumları yakalayıp o durumlara göre bir takım işlemler yaptırabiliyoruz.
