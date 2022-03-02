@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-
+import Counter from "./components/Counter";
+import { useState } from "react";
 /*
 useEffect:
 Bir butona bastığımız anda bu name'i değiştirebiliriz ve bu state güncellenir dolayısıyla bu component render edilir.
@@ -27,52 +27,12 @@ Componentin tepesinde bulunmalı ve her hangi bir kontrole tabi olmamalı.
   */
 
 function App() {
-
-  const [number, setNumber] = useState(0);
-  const [name, setName] = useState("Emirhan");
-
-  /*
-    Arrow fuctionu yazdıktan sonra bir virgül atıp ikinci parametrede array açıp kapatma yapmamız gerekiyor.
-    Bunun adı Teknik Termanilojide dependency array olarak geçiyor.(Bağımlılık array'i) olarak geçiyor.
-    Eğer [] bunu boş bırakırsak içine bir şey yazmaksak anlamı nedir?
-    Component mount edildiği anı yakalarsın demek oluyor.
-  */
-
-  useEffect(() => {
-    console.log("Component mount edildi!");
-  }, []);
-
-  //Bu ifade sadece state'nin güncellendiği anda yazacağı anlamına geliyor.
-  // useEffect(() => {
-  //   console.log("State güncellendi!");
-  // })
-  //Number güncellendiğinde bundan haberdar olmak istiyorsak ne yapabiliriz?
-  //Hangi state'nin değişimini yakalamak istiyorsak bunun içine [] onun değerini vermemiz gerekiyor.
-  // useEffect(() => {
-  //   console.log("Number state güncellendi!");
-  // }, [number]);
-  //Sadece Number ve Name statesinin güncellendiğini görmek için
-  // useEffect(() => {
-  //   console.log("Number veya Name state güncellendi!");
-  // }, [number, name]);
-  //[] Array'in içerisine istediğimiz kadar state elemanını ekliyebiliriz.
-
-  //Ayrı görüntülemek içinde
-  useEffect(() => {
-      console.log("Number state güncellendi!");
-    }, [number]);
-
-    useEffect(() => {
-      console.log("Name state güncellendi!");
-    }, [name]);
-
+  const [isVisible, setIsVisible] = useState(true)
   return (
     <div className="App">
-      <h1>{number}</h1>
-      <button onClick={() => setNumber(number + 1)}>Click</button>
-      <hr />
-      <h1>{name}</h1>
-      <button onClick={() => setName("Deneme")}>Click</button>
+      {isVisible && <Counter />}
+      <br />
+      <button onClick={() => setIsVisible(!isVisible)}>Toggle Counter</button>
     </div>
   );
 }
