@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Example</title>
+</head>
+
+<body>
+    <!--
+        React componentlerimiz üzerindeki Re-Render mantığını anlayabilmek için yani yeniden render etme mantığını biraz daha
+        iyi anlıyabilmek için şimdi aynı örneği hem jquery ile hemde react ile yapmaya çalışıcaz.
+        Sonrasında bu örneklerin ilgili web sayfasını nasıl render ettiklerini görmeye ve anlamaya çalışıcaz.
+        Aralarındaki farkları anlayamaya çalışıcaz.
+        
+        React ile yaptığımız sayaç uygulaması var. Bunun benzerinide jquery ile yapmaya çalışalım ve
+        bunlar render edilirken yani bir butona basıldıktan sonra ekrandaki bir veri render edilirken ne gibi bir
+        farklılıklar oluyor görelim.
+        
+        cdnjs.com
+    -->
+
+    <h1>0</h1>
+
+    <button>Increase</button>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(() => {
+        $('button').on('click', () => {
+            $('h1').html(1)
+        })
+    })
+</script>
+
+<!--
+    Render işlemini görebilmek için
+    Tarayıcımızdan Developer Tools'u açıyoruz. (F12 - Öğeyi Denetle)
+    Sağ taraftan 3 noktalı olan yere tıklıyoruz.
+    More Tools sekmesi altında Rendering butonuna tıklayıp açıyoruz.
+    Ve alt bölümden Paint Flashing'i açıyoruz.
+    Anlamı:
+    Ekranda render edilen alanları bize ışık yakarak gösteriyor.
+    
+    jQuery ile yaptığımız olayda butona tıkladığımızda sürekli sayıyı değiştirdiğimiz alanı render ettiğini görüyoruz.
+    Buda gereksiz bir render edilme işlemi oluyor.
+
+    React dünyasında ise Increase butonunu jquery gibi sabit 1 yaptırıp denediğimizde
+    Butona bir kere bastığımızda render işlemini yapıyor.
+    İlk seferde normal çünki değeri 0'dı 1 oldu.
+    Dolayısıyla render edilmesi lazımki değişiklikleri görebilelim.
+    Asıl önemli olan şey zaten 1 olduğu halde yeniden o butona bastığımızda oranın render edilmiyor olması.
+    1 Olduktan sonra tekrar butona bastığımızda render edilmiyor. Çünki 1 olduğu halde yine 1 set etmeye çalışıyoruz.
+    Dolayısıyla sanal dom'da o zaten 1 olarak durduğu için gidip onu real dom'a yazmaya(değiştirmeye) çalışmıyor.
+
+    jQuery örneğine tekrar dönüp baktığımızda orada her bastığımızda değiştirme işlemi yapılıyor.
+
+    jQuery ve React arasında bir veriyi güncellerken ekranımızın her hangi bir alanınındaki bir state'i güncellerken
+    ortaya çıkan rendering farkları bu şekilde diyebiliriz. En temel anlamda.
+    Bundan sonraki React geliştirme kariyerinizde oldukça önemli.
+    Bir React uygulaması geliştirirken dikkat etmeniz gereken en önemli durumlardan biri gereksiz renderlerin önüne geçmek.
+    Burada React direkt olarak bunun önüne geçebiliyor burda ama önüne geçemediği ve dikkat etmeniz gereken belli başlı noktalar var.
+    Onlarıda memories konularında değinmeye çalışacağız.
+-->
+
+</html>
