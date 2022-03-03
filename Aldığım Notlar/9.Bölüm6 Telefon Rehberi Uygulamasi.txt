@@ -1,0 +1,8 @@
+Bu bölüme kadar öğrendiklerimiz ile bir örnek uygulama geliştirmeye çalışarak öğrendiklerimizi pekiştirmeye çalışacağız.
+
+Bunu react uygulaması olarak oluşturucaz.
+
+Nedir bu uygulama?
+Telefon rehberi uygulaması olarak düşünebilirsiniz.
+
+Örnek Uygulama Görsel:
