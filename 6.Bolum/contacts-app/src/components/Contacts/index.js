@@ -4,7 +4,16 @@ import List from './List';
 import Form from './Form';
 
 function Contacts() {
-    const [contacts, setContacts] = useState([]);
+    const [contacts, setContacts] = useState([{
+        fullname: "Emirhan",
+        phone_number: 1234421
+    },{
+        fullname: "Deneme",
+        phone_number: 456457
+    },{
+        fullname: "Test",
+        phone_number: 987659
+    }]);
 
     /*
     Contacts'e bir atama yapıldığında o son güncel halini görmeye çalışalım.
