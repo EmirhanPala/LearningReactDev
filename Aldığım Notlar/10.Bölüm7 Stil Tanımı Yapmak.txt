@@ -1,0 +1,11 @@
+React componentlerini stillendirirken bilmemiz gereken temel konular.
+
+create-react-app ile projemizi oluşturup içerisinde App.css dosyasında csslerimizi görüyoruz.
+App.js dosyamızı açtığımızdada hazırlanan css dosyası doğrudan import edilmiş ve component içerisinde kullanılabilmiş.
+
+Normal html yazarken react ile uygulama yapmazken etiketlerde style diye bir property var.
+Buraya biz inline olarak bi still tanımı girerek kullanabiliyoruz.
+
+Aynı şeyi yapabiliyormuyuz bakmaya çalışalım.
+
+Bölüm7: style-definations
