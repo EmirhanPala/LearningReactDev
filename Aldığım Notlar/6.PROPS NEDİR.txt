@@ -1,2 +1,0 @@
-Props dediğimiz şey oluşturacağımız componentlerde bir parametre geçmek istiyebiliriz. O para metrelerle o componentin initial görüntüsünü oluşturmak istiyebiliriz.
-Bu durumlarda kullanabileceğimiz bir yapı.
