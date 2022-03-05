@@ -6,25 +6,6 @@ import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About"; 
 
-/*
-Kurulum için
-reactrouter.com/web/
-
-Reactteki routing yapısı:
-Aşağıdaki gibi yüklemeleri yapıp kullandığımızda
-Home ekranındayız. Örnek: About'a bastığımızda adres satırı ile content'in sayfa yenilenmeden değiştiğini görüyoruz.
-Butona bastığımızda hiç bir şekilde sayfa yenilenmiyor.
-Tarayıcıdaki adress yerine endpoint
-Link içerisinde gelen sayfada content
-
-Yeni versiyonda switch olmadığı için routes kullanılıyor.
-Eski versiyonunu kullanmak için
----Önceki kurduğumuz react-router-dom'u kaldıralım.
--npm uninstall react-router-dom
----Şimdi ise eski versiyonu indirmek için alttaki kodu yazalım.
-npm install react-router-dom@5.2.0
-*/
-
 function App() {
   return (
     <Router>
@@ -42,11 +23,25 @@ function App() {
             </li>
           </ul>
         </nav>
-
+        {
+          /*
+          Switch çalışma mantığı: 
+          Switch'e girdiğiniz zaman 1'incisine bakıyor.
+          Başta home'nin olduğunu düşünürsek path ney? /
+          Peki bu ifade diğer sayfalardada varmı? Var o yüzden eşleştiği için direk olarak bunu çalıştırıyor bizim için.
+          Yani burada bir düzenli ifade var ve o düzenli ifade ile bizim endpointimiz bir yere kadar eşleştiği için
+          Doğrudan onu kabul ediyor. Onu çalıştırıyor.
+          Yani home en üstteyken diğer sayfalara girdiğimizde endpoint değişirken content değişmiyecektir.
+          Bundan kurtulmak için Home'u en altta yazarız.
+          İllede en üste yazıp kullanacaksakda şöyle yaparız.
+          exact bunu yazarsak yine o sorundan kurtulmuş oluyoruz.
+          exact propuda bu işe yarıyor.
+          */
+        }
         <Switch>
+        <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/users" component={Users} />
-          <Route path="/" component={Home} />
         </Switch>
       </div>
     </Router>
