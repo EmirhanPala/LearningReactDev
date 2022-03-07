@@ -1,0 +1,8 @@
+State bölümünden hatırlarsanız bir takım form işlemleri yapmıştık.
+Şimdi ise bu form işlemlerinin biraz daha kolay halini ve kolay yönetilebilir halini görücez.
+Biz reactte form yönetimlerimizi yaparken formik adındaki aracı kullanarak form yönetimimizi çok daha
+Basit bir şekilde yapabiliyoruz.
+Şuan react dünyasında karşımıza çıkan form kontrolü, yönetimi anlamında en basit en kullanılabilir durumda olanı formik.
+Çok basitçe form işlemlerimizi bununla çok az eforla yapabiliyoruz.
+
+Site: formik.org
