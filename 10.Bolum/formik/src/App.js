@@ -2,11 +2,8 @@ import './App.css';
 import Signup from './components/Signup'
 
 /*
-Form validasyonları 1
-
-Validasyon işlemlerini yup ile yapıyoruz.
-Link: https://github.com/jquense/yup
-
+Form validasyonları 2
+Hata mesajlarının gösterimini yapıcaz.
 */
 function App() {
 
