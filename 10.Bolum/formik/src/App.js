@@ -2,10 +2,7 @@ import './App.css';
 
 import { Formik } from 'formik'
 /*
-Şimdi biz istiyoruzki formik'in bize vermiş olduğu bu form ve field componentlerini kullanmayalım.
-Doğrudan HTML'deki formu ve input nesnelerini, etiketlerini kullanalım.
-Bunun için bir kaç değişime ihtiyacımız var.
-İmporttan  Field, Form siliyoruz.
+Radio / Checkbox / Dropdown
 */
 function App() {
   return (
@@ -13,43 +10,78 @@ function App() {
       <h1>Sign Up</h1>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
+          firstName: 'Emirhan',
+          lastName: 'Pala',
+          email: 'emirhanpala@test.net',
+          gender: 'male',
+          hobies: [],
+          country: "turkey",
         }}
         onSubmit={(values) => {
           console.log(values);
         }}
       >
         {
-          /*
-          Eğer kendi inputlarımızı kullanmak istersek yani html etiketlerinin kullanarak ilerlemek istersek
-          Alttaki gibi bir yapıya bürünmemiz gerekiyor.
-          Burda form ve field componentlerini kullandığımız zaman iş biraz daha kolay oluyor aslında ama çoğu zaman
-          Onları kullanamayabiliyoruz. Bir takım özelleştirmeler vs gerekiyor. İşte o gibi durumlardada bu yöntemi uygulayabiliriz.
-          */
-          ({handleSubmit, handleChange}) => (
+          ({ handleSubmit, handleChange, values }) => (
             <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
-          <input name='firstName' onChange={handleChange} />
+              <label htmlFor="firstName">First Name</label>
+              <input name='firstName' value={values.firstName} onChange={handleChange} />
 
-          <br />
-          <br />
+              <br />
+              <br />
 
-          <label htmlFor="lastName">Last Name</label>
-          <input name='lastName' onChange={handleChange} />
+              <label htmlFor="lastName">Last Name</label>
+              <input name='lastName' value={values.lastName} onChange={handleChange} />
 
-          <br />
-          <br />
+              <br />
+              <br />
 
-          <label htmlFor="email">Email</label>
-          <input name='email' onChange={handleChange} />
+              <label htmlFor="email">Email</label>
+              <input name='email' value={values.email} onChange={handleChange} />
 
-          <br />
-          <br />
+              <br />
+              <br />
 
-          <button type="submit">Submit</button>
-        </form>
+              <span>Male</span>
+              <input type="radio" name='gender' value="male" onChange={handleChange} checked={values.gender === "male"} />
+              <span>Female</span>
+              <input type="radio" name='gender' value="female" onChange={handleChange} checked={values.gender === "female"} />
+
+              <br />
+              <br />
+
+              <div>
+                <input type="checkbox" name='hobies' value="Football" onChange={handleChange} />
+                Football
+              </div>
+
+              <div>
+                <input type="checkbox" name='hobies' value="Cinema" onChange={handleChange} />
+                Cinema
+              </div>
+
+              <div>
+                <input type="checkbox" name='hobies' value="Photography" onChange={handleChange} />
+                Photography
+              </div>
+
+              <br />
+              <br />
+
+              <select name="country" value={values.country} onChange={handleChange}>
+                <option value="turkey">Turkey</option>
+                <option value="england">England</option>
+                <option value="usa">USA</option>
+              </select>
+
+              <br />
+              <br />
+              <button type="submit">Submit</button>
+
+              <br />
+              <br />
+              <code>{JSON.stringify(values)}</code>
+            </form>
           )
         }
       </Formik>
