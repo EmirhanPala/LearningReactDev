@@ -1,0 +1,3 @@
+Bu bölümde react componentlerimizdeki gereksiz renderların önüne geçerek bu componentleri 
+daha performanslı hale getirmek için uygulayabileceğimiz bağzı memoizing yöntemlerini görücez.
+Bunların ilki olan React.memo ile başlıyoruz.
