@@ -5,17 +5,20 @@ function App() {
   const [number, setNumber] = useState(0);
   const [text, setText] = useState("");
 
-  const data = useMemo(() => {
+  /*const data = useMemo(() => {
     return calculateObject();
-  }, []);
-  /*
-  Yanlış örnekteki kullanmak yerine useMemo'yu kullanarak bu işlemi yapsaydık
-  Her defasında o hesaplamayı yapmak durumunda kalmıyacaktık. Kontrol ettiğimizde hiç bir sıkıntı yaşamadan
-  İnputumuza karakter girişi yapabiliyoruz.
+  }, [number]);*/
 
-  Peki bu hesaplama ne zaman yapılacak?:
-  Taki useMemo'nun içerisindeki [] arrayin içerisine girdiğimiz değer artık neyse o değiştiği anda yapılacaktır.
+  /*
+  Bu hesaplama ne zaman yapılacak?:
+  Örnek: number değiştiği anda bu işlemi yap diyebiliriz.
+  Artık butona tıkladığımızda hesaplama işlemini yapıcaktır.
+
+  number'ı kullanmak istersekde örnek aşağıdaki gibi kullanılabilir.
   */
+  const data = useMemo(() => {
+    return calculateObject(number);
+  }, [number]);
   //const data = calculateObject();
   return (
     <div className="App">
@@ -25,17 +28,17 @@ function App() {
       <button onClick={() => setNumber(number + 1)}>Click</button>
       <br />
       <br />
-      <input value={text} onChange={({target}) => setText(target.value)} />
+      <input value={text} onChange={({ target }) => setText(target.value)} />
     </div>
   );
 }
 
-function calculateObject(){
+function calculateObject(number) {
   console.log("Calculating...");
-  for(let i=0; i<1000000000; i++) {}
+  for (let i = 0; i < 1000000000; i++) { }
   console.log("Calculating completed!");
 
-  return { name: "Emirhan" };
+  return { name: "Emirhan", number };
 }
 
 export default App;
