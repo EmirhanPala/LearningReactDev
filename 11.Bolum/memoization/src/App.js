@@ -49,21 +49,27 @@ Durum bu useMemo böyle bir hook. Bunu dediğimiz gibi array'ler içerisinde kul
 */
 function App() {
   const [number, setNumber] = useState(0);
+  const [text, setText] = useState("");
   /*const data = useMemo(() => {
     return { name: "Emirhan" };
   }, []);*/
   /*const data = useMemo(() => {
     return { name: "Emirhan", number };
   }, [number]);*/
-  const data = useMemo(() => {
-    return calculateObject();
-  }, []);
+  // const data = useMemo(() => {
+  //   return calculateObject();
+  // }, []);
+
+  const data = calculateObject();
   return (
     <div className="App">
       <Header data={data} />
       <hr />
       <h1>{number}</h1>
       <button onClick={() => setNumber(number + 1)}>Click</button>
+      <br />
+      <br />
+      <input value={text} onChange={({target}) => setText(target.value)} />
     </div>
   );
 }
@@ -75,6 +81,31 @@ Böyle denediğimizde yine aynı şekilde çalışmaya devam ediyor. (Render iş
 */
 
 function calculateObject(){
+  /*
+  Şurada hesaplaması zor bellir bir zaman alacak tonlarca veriyle çalıştığımız bir işlem yaptıracak olsaydık.
+  Örneğin:
+  Hesaplamanın başlaması ve bitmesiyle ilgili log koyduk.
+
+  Şimdi bu kodu useMemo olmadan kullansaydık.
+
+  Butona basıyoruz.
+  Calculating dedi
+  Calculating complate dedi
+  Şimdi bu arada belli bir süre alıyor ve biz eğer şöyle bir şey yapacak olsaydık
+  Bir inputumuz olsaydı button altına yazdık <input value={text} onChange={({target}) => setText(target.value)} />
+  ve tekrar bir bakalım.
+  inputa bir şeyler yazmaya başlayalım. Yazdığımız anda bir hesaplama yapmaya başladı.
+  Ve her bastığımızda yeniden hesaplamaya başlıyor ve burada arka arkaya yazmaya başladığımızda buradaki inputta inanılmaz bir
+  Yavaşlık söz konusu oluyor. 
+  Eğer biz bu hesaplama işlemini bu şekilde yaparsak ve bizim burada sadece bir inputumuz var olayı sadece içine bir veri giriliyor
+  Başka bir numarası yok yani  const data = calculateObject(); şu hesaplama işlemiyle hiç bir alakası yok ama yinede 
+  burdaki setText statesi değiştiği için data baştan hesaplanmak durumunda kalıyor.
+  */
+
+  console.log("Calculating...");
+  for(let i=0; i<1000000000; i++) {}
+  console.log("Calculating completed!");
+
   return { name: "Emirhan" };
 }
 
