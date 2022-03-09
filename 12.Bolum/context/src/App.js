@@ -2,34 +2,29 @@ import './App.css';
 import Button from './components/Button';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
+import Container from './components/Container';
 
 /*
-Context Api ile State Yönetimi-->Context Provider:
+Context Api ile State Yönetimi-->Theme Switcher Yapımı
 Provide: Sağlamak
 Provider: Sağlayıcı
+---------------------
+Elimizdeki theme datasını kullanarak bir stillendirme yapalım.
+Dark mod seçildiği anda ekran siyah olsun light mod seçildiğindede beyaz olsun şeklinde.
 
-Context'ten sağlamış olduğumuz dataları değiştirdiğimiz anda kullanılan componentlerdede anlık olarak değiştiğini gözlemlemeye çalışacağız.
+//////////////
+Şimdi bu işlemi en dıştaki divimiz üzerinden götüreceğimiz için yani dark olduğunda farklı bir className'i ve light olduğunda farklı bir className'i
+İlgili div'e vermek istiyicem. Fakat bunu App.js dosyasında yapamayız. Çünkü zaten App.js dosyasında bu provider kullanılmaya başlanıyor.
+Eğer bu app.js componentini sarmalayan bir yapı yoksa kullanamayız. Dolayısıyla şöyle bir şey yapabiliriz. Bir tane daha component oluştururuz.
+Container.js oluştururuz. App.js içindeki yaptığımız işlemleri <header'den  almaya başlayıp container js içerisine yerleştiririz. 
 
-Ondan önce önceki yazdığımız provider'ımızı biraz daha yönetilebilir daha temiz bir hale getirmek için ve bu app component'ini biraz daha
-Temiz bırakmak için Provider'ı ThemeContext üzerinde tanımlayabiliriz. İlla app içerisinde yapmak zorunda değiliz.
-
-Öncesinde reactte children diye bir mantık var. <Button> Buranın içerisini istediğimiz gibi doldura biliriz. </Button>
-Sonrasında Button.js' içerisine girdiğimizde function Button({children}) burada bize prop olarak children diye bir şey geliyor.
-Eğer biz bu children'i kullanırsam return içerisinde App.js içerisinde butonun içine ne yazdıysam onu aslında alıp button.js'de kullanmış oluyorum.
-
-//////////////////////////////////////////////////////////////////
-Şimdi amacımız provider'ı context üzerine taşımak.
-
-
+Artık container componentinin içerisinde ThemeProvider'dan gelen datayı kullanabilicez.
 */
 
 function App() {
   return (
-    //Burada ThemeProvider içine yazıcağımız ifade aslında children olmuş oluyor.
     <ThemeProvider>
-      <Header />
-      <hr />
-      <Button />
+      <Container />
     </ThemeProvider>
   );
 }

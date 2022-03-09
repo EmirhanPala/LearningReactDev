@@ -3,10 +3,6 @@ import { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext'
 
 function Button() {
-    //Örnek-1:
-    //const data = useContext(ThemeContext);
-    //console.log(data);
-    //Örnek-2:
     const { theme, setTheme } = useContext(ThemeContext);
     return (
         <div>
