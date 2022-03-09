@@ -1,0 +1,23 @@
+Context Api ile State yönetimi:
+
+React'ın state yönetimi yapabilmemiz için bize verdiği context api'yi inceliyeceğiz.
+
+Uygulamalarımızda her hangi bir component'te bir state oluşturduğumuzda ilgili state hep o component'in içerisinde kalıyordu veya
+
+Bu datayı bir alt component'e göndermemiz gerekiyordu. O alt component'in altındaki bir componentte kullanmam gerekiyorsa onunda altına tek tek eklememiz gerekiyordu.
+Örnek: https://miro.medium.com/max/3472/1*Jx8BCxZFN2SCuhQtZqfgMQ.jpeg
+Sol tarafta bulunan kısım
+
+Bu bizim için oldukça büyük bir problem ayrıca örneğin soldaki play button componenti içinde gerçekleşen var olan bir state'i ben header'da kullanmak istersem napıcam
+Gibi sorunlar, sıkıntılar var.
+
+Bunlardan tamamen kurtulmak için React bize bir kütüphane veriyor. Bir yapı veriyor. Direkt react'ın altında geliyor. Ayrıca bir kütüphane vs kurmamıza gerek yok.
+İsmi: Context
+
+Bu context'i kullanarak aslında biz elimizdeki artık o anda hangi data varsa bunu provide(sağlamak) ediyoruz.
+O context'in altında kullanılmış olan tüm componentlere ve o context'in içindeki dataya her hangi bir anda her hangi bir component'in içinden erişip.
+Değerini manipüle edebiliyoruz. Bu react'in bize vermiş olduğu araç.
+
+State yönetimlerini yapabilmek için birden fazla araç var bugün bunlardan en bilineni en eski olanını redux, apollo client gibi bir sürü araç var
+Bunların arasında baktığınız zaman kullanımı, öğrenimi en basit olanı en temiz olanı context api olarak görünüyor.
+Elbet yapılan işe göre seçilecek state yönetim aracıda farklılık gösterebilir.
