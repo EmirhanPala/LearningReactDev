@@ -4,20 +4,25 @@ import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Container from './components/Container';
 
-/*
-Context Api ile State Yönetimi-->Context Provider Side Effects
-Yazdığımız provider üzerinde başka neler yapabiliriz onlara bakıcaz.
-Temayı değiştirdiğimiz zaman yenile yaptıkmı varsayılan olarak verdiğimiz state neyse onu gösteriyor.
-Temayı değiştirdiğimiz anda gidip bunu tarayıcının local storage'sine yazsaydık ve bu provider ilk ayağa kalktığındada
-Default olarak gidip o local storage'deki değere göre bunu ayağa kaldırsaydık sayfayı yenilesekte son yaptığımız değişiklik ne ise
-Onu görüyor olacaktık.
+import { UserProvider } from './context/UserContext';
 
+/*
+Context Api ile State Yönetimi-->Multi Context
+Uygulamalarımızda birden fazla context'i barındırabiliriz.
+Tek bir context hazırlayıp bütün verimizi bunun altından akıtmak zorunda değiliz.
+Öyle bir şey zaten mümkünde değil aslında mümkün ama scale olabilir yapılar kurmakta oldukça zorluk çekersiniz.
+Dolayısıyla bir biriyle alakasız olan tüm verileri bir birinden ayırmak. Bir biriyle alakalı olan bütün verileride
+Tek bir çatı altında toplamak asıl olan bu durumda. 
+
+Şimdi UserProvider UserContext'i ThemeContext'indeki datayıda kullanabilir durumda olmuş oluyor.
 */
 
 function App() {
   return (
     <ThemeProvider>
-      <Container />
+      <UserProvider>
+        <Container />
+      </UserProvider>
     </ThemeProvider>
   );
 }
