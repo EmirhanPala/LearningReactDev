@@ -1,6 +1,7 @@
 import './App.css';
 import Button from './components/Button';
-import ThemeContext from './context/ThemeContext';
+import { ThemeProvider } from './context/ThemeContext';
+import Header from './components/Header';
 
 /*
 Context Api ile State Yönetimi-->Context Provider:
@@ -16,16 +17,20 @@ Temiz bırakmak için Provider'ı ThemeContext üzerinde tanımlayabiliriz. İll
 Sonrasında Button.js' içerisine girdiğimizde function Button({children}) burada bize prop olarak children diye bir şey geliyor.
 Eğer biz bu children'i kullanırsam return içerisinde App.js içerisinde butonun içine ne yazdıysam onu aslında alıp button.js'de kullanmış oluyorum.
 
+//////////////////////////////////////////////////////////////////
+Şimdi amacımız provider'ı context üzerine taşımak.
+
+
 */
 
 function App() {
   return (
-    <ThemeContext.Provider value="dark">
-      <Button>
-        Merhaba,
-        <p>Nulla in cupidatat eu adipisicing sunt culpa consectetur duis. Dolor amet velit est consequat veniam anim quis sit reprehenderit. Labore et minim minim mollit et consequat fugiat. Officia in incididunt enim duis ullamco labore. Cillum in veniam excepteur aliqua reprehenderit adipisicing amet amet est ea consequat veniam veniam. Laborum nulla commodo fugiat excepteur anim ut nulla cillum proident. Minim esse nulla adipisicing enim incididunt occaecat eiusmod quis est sunt aute consequat.</p>
-      </Button>
-    </ThemeContext.Provider>
+    //Burada ThemeProvider içine yazıcağımız ifade aslında children olmuş oluyor.
+    <ThemeProvider>
+      <Header />
+      <hr />
+      <Button />
+    </ThemeProvider>
   );
 }
 
