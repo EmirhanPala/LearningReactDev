@@ -5,20 +5,13 @@ import Header from './components/Header';
 import Container from './components/Container';
 
 /*
-Context Api ile State Yönetimi-->Theme Switcher Yapımı
-Provide: Sağlamak
-Provider: Sağlayıcı
----------------------
-Elimizdeki theme datasını kullanarak bir stillendirme yapalım.
-Dark mod seçildiği anda ekran siyah olsun light mod seçildiğindede beyaz olsun şeklinde.
+Context Api ile State Yönetimi-->Context Provider Side Effects
+Yazdığımız provider üzerinde başka neler yapabiliriz onlara bakıcaz.
+Temayı değiştirdiğimiz zaman yenile yaptıkmı varsayılan olarak verdiğimiz state neyse onu gösteriyor.
+Temayı değiştirdiğimiz anda gidip bunu tarayıcının local storage'sine yazsaydık ve bu provider ilk ayağa kalktığındada
+Default olarak gidip o local storage'deki değere göre bunu ayağa kaldırsaydık sayfayı yenilesekte son yaptığımız değişiklik ne ise
+Onu görüyor olacaktık.
 
-//////////////
-Şimdi bu işlemi en dıştaki divimiz üzerinden götüreceğimiz için yani dark olduğunda farklı bir className'i ve light olduğunda farklı bir className'i
-İlgili div'e vermek istiyicem. Fakat bunu App.js dosyasında yapamayız. Çünkü zaten App.js dosyasında bu provider kullanılmaya başlanıyor.
-Eğer bu app.js componentini sarmalayan bir yapı yoksa kullanamayız. Dolayısıyla şöyle bir şey yapabiliriz. Bir tane daha component oluştururuz.
-Container.js oluştururuz. App.js içindeki yaptığımız işlemleri <header'den  almaya başlayıp container js içerisine yerleştiririz. 
-
-Artık container componentinin içerisinde ThemeProvider'dan gelen datayı kullanabilicez.
 */
 
 function App() {
