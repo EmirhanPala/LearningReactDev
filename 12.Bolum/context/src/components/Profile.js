@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
-import UserContext from '../context/UserContext';
+import { useUser } from '../context/UserContext';
 
 function Profile() {
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useUser();
     const [loading, setLoading] = useState(false);
     //console.log(data);
     const handleLogin = () => {
         setLoading(true);
         setTimeout(() => {
-            setUser({ id:1, username: "epala", bio: "lorem ipsum"});
+            setUser({ id: 1, username: "epala", bio: "lorem ipsum" });
             setLoading(false);
         }, 1500);
     };

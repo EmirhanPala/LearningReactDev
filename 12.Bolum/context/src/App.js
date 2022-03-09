@@ -7,14 +7,16 @@ import Container from './components/Container';
 import { UserProvider } from './context/UserContext';
 
 /*
-Context Api ile State Yönetimi-->Multi Context
-Uygulamalarımızda birden fazla context'i barındırabiliriz.
-Tek bir context hazırlayıp bütün verimizi bunun altından akıtmak zorunda değiliz.
-Öyle bir şey zaten mümkünde değil aslında mümkün ama scale olabilir yapılar kurmakta oldukça zorluk çekersiniz.
-Dolayısıyla bir biriyle alakasız olan tüm verileri bir birinden ayırmak. Bir biriyle alakalı olan bütün verileride
-Tek bir çatı altında toplamak asıl olan bu durumda. 
+Context Api ile State Yönetimi-->Custom Context Hook
+Her defasında bir component'e bir context kullanıcağımız zaman örneğin: Button.js içindeki ThemeContext kullanıcağımız zaman
+Önce context'in kendisini import ediyoruz. Sonra react'in altında useContext'i alıp function içinde kullanıyoruz. Bu diğer yaptıklarımız içinde geçerli.
+Bu her defasında tekrar tekrar yapmak insanı yorabiliyor. Bunu biraz daha güzelleştirme şansımız var aslında. 
 
-Şimdi UserProvider UserContext'i ThemeContext'indeki datayıda kullanabilir durumda olmuş oluyor.
+Şimdi bizim olayımız ney? Bir context import ediyoruz component'e yani dışa aktardığımız ThemeContext'i ilgili component'e içe aktarıyoruz.
+Sonrada react'in altından useContext alıyoruz. İşte aynı işi aslında ThemeContext'in içinde yapabiliriz.
+
+Yaptığımız bu örneklede contextlerimizi biraz daha yalınlaştırmış olduk.
+
 */
 
 function App() {
