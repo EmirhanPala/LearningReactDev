@@ -38,3 +38,26 @@ export const init = () => {
     Şimdi yazmış olduğumuz bu fonksiyonu gidip App.js dosyamızda kullanıcaz.
     */
 }
+
+/* 
+Sunucuya bağlantı işlemlerini gerçekleştirdik şimdide sayfamız üzerinden renk seçildiğinde ve butona basıldığında bunu backend'imize iletebileceğimizi göreceğiz.
+
+Şimdi buradada backend'e bir mesaj gönderebilmek için gerekli olacak fonksiyonumuzu yazıyoruz.
+*/
+
+export const send = (color) => {
+    /* 
+    socket.emit: Bu methodun yaptığı şey | Eğer clienttaysak backend'e - backenddeysek client'a bir data göndermeyi sağlıyor.
+    
+    2 Parametre yazılacak.
+    ----
+    1.Data hangi kanala gönderilecek.
+    2.Data ney?
+
+    Backendde newColor olarak karşılıyormuşuz. O yüzden bizim bunu newColor kanalına göndermemiz lazım.
+    Ayrıca backendde color diye parametre alıyoruz. O kullanılıyor.
+    */
+    socket.emit("newColor", color);
+
+    //Şimdi bu send fonksiyonunu palatta.js'de kullanmaya çalışıcaz.
+}
