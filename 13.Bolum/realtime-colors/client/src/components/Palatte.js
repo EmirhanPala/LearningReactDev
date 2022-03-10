@@ -4,11 +4,11 @@ Renkleri seçip butona basıcağımız panel bu olacak.
 */
 
 import { send } from "../socketApi";
-function Palatta() {
+function Palatta({activeColor}) {
   const [color, setColor] = useState("#000");
   return (
     <div className='palatte'>
-      <input type="color" value={color} onChange={(e) => setColor(e.target.value)} />
+      <input type="color" value={activeColor} onChange={(e) => setColor(e.target.value)} />
       <button onClick={() => send(color)}>Click</button>
     </div>
   )

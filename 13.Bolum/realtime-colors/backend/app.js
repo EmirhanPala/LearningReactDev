@@ -41,6 +41,9 @@ io.on("connection", (socket) => {
 		Sonrasındada diğer bağlı olan tüm clientlara bunu iletmişiz.
 		*/
 		io.emit("receive", color);
+
+		//broadcash: Bağlı olan client hariç diğerlerine göndermektense tamamına göndermek için io.emit diyebiliriz.
+		//socket.broadcash.emit("receive", color);
 	});
 
 	socket.on("disconnect", () => {

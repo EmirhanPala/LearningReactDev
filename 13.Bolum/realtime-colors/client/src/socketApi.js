@@ -60,4 +60,20 @@ export const send = (color) => {
     socket.emit("newColor", color);
 
     //Şimdi bu send fonksiyonunu palatta.js'de kullanmaya çalışıcaz.
-}
+};
+
+/*
+receive kanalına abone olalım ve her hangi bir client veri gönderdiği anda bunu alıp kullanmaya çalışalım.
+*/
+
+//Subscribe adında bir method oluşturuyoruz. Bunun altında gerekli işlemlerimizi yapıcaz.
+export const subscribe = (cb) => {
+    //Burada neye ihtiyacımız var? socketi dinlemeye ihtiyacımız var.
+    //Nereyi dinliyeceğiz? : receive kanalını
+    //Çünkü backendimizde bu isimle emit işlemi yapılıyor. Buradan bize bir renk gelicek(backendden) ve biz o onu şöyle logluyabiliriz.
+    socket.on("receive", (color) => {
+        console.log(color);
+        //Fonksiyon olarak geçtiğimiz subscribe içindeki parametremizi burada kullandık.
+        cb(color);
+    })
+};
