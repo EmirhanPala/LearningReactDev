@@ -1,26 +1,40 @@
-import io from "socket.io-client";
+import io from 'socket.io-client';
+/*
+Kuruduğumuz modülü buraya ekliyoruz.
+*/
 
+//socket adında bir değişken oluşturuyoruz.
 let socket;
 
+//Fonksiyon oluşturup dışarı aktarıcaz.
 export const init = () => {
-	console.log("Sunucuya bağlanılıyor...");
+    console.log("Sunucuya bağlanılıyor...");
 
-	socket = io("http://localhost:3001", {
-		transports: ["websocket"],
-	});
+    //Bu init fonksiyonunu bağlantı sağlıyacağımız yerde kullanıcaz.
 
-	socket.on("connect", () =>
-		console.log("Sunucuya bağlantı başarıyla gerçekleşti.")
-	);
-};
+    /*
+    Yukarıda oluşturduğumuz değişkene bir atama işlemi yapıyoruz.
+    Burada ne yapılacak? Gidilecek io'ya doğrudan bir endpoint verirsek eğer oraya ilgili bağlantı işlemini gerçekleştirecektir.
 
-export const send = (color) => {
-	socket.emit("newColor", color);
-};
+    Bizim backend'imiz 3001 portunda çalışıyor.
 
-export const subscribe = (cb) => {
-	socket.on("receive", (color) => {
-		console.log(color);
-		cb(color);
-	});
-};
+    Şimdi o 3001 portuna bağlantı sağlamamı gerekiyor.
+    transports parametresinide websocket olarak belirliyoruz.
+
+    */
+    socket = io("http://localhost:3001", {
+        transports: ["websocket"],
+    });
+
+    /*
+    Bağlantı işlemi gerçekleştikten sonrada
+    connect diyip bunu dinleyebiliriz.
+    */
+    socket.on("connect", () =>
+        console.log("Sunucuya bağlantı başarıyla gerçekleşti.")
+    );
+
+    /* 
+    Şimdi yazmış olduğumuz bu fonksiyonu gidip App.js dosyamızda kullanıcaz.
+    */
+}
