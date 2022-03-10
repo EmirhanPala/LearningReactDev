@@ -1,0 +1,13 @@
+Bölüm-13: Gerçek Zamanlı Çalışan Uygulamalar Geliştirmek
+
+Real Time olarak çalışan backend'ler üzerinde nasıl çalışabiliriz öğrenicez.
+Bu bölümde bir örnek uygulama geliştiricez.
+
+Uygulama:
+Ekranın ortasında bir tane buton olucak.
+Bir tanede renk seçimi yapabileceğimiz renk palet(color picker) olucak.
+Buradan bir renk seçilip butona basıldığı anda web sayfasında olan bütün kullanıcılara anlık olarak gerçek zamanlı olarak
+O renk gösterilecek. Her hangi bir sayfa yenileme işlemi vs olmayacak.
+
+Oldukça basit bir uygulama olacak ama mantığını anlamak için React üzerinde Real Time çalışan backendlerle beraber 
+Nasıl çalışabilirizi öğrenmek için oldukça faydalı olacaktır.
