@@ -5,12 +5,16 @@ import styles from './styles.module.css';
 import { useChat } from '../context/ChatContext';
 import ChatItem from './ChatItem';
 
+import ScrollableFeed from 'react-scrollable-feed';
+
 function ChatList() {
   const { messages } = useChat();
   //console.log(messages);
   return (
+
     <div className={styles.chatlist}>
-      <div>
+
+      <ScrollableFeed forceScroll={true}>
         {
           /*
           Context'imizin içerisindeki var olan mesajları alıp burada göstericez.
@@ -18,9 +22,12 @@ function ChatList() {
           */
           //bize gelen chat objesini item olarak gönderiyoruz.
           messages.map((item, key) => (
-          <ChatItem key={key} item={item} />
+
+            <ChatItem key={key} item={item} />
+
           ))}
-      </div>
+      </ScrollableFeed>
+
     </div>
   );
 }
