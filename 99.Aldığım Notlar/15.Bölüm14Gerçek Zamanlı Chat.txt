@@ -1,0 +1,46 @@
+Bir önceki bölümde socket.io ile real time çalışan bir react uygulaması geliştirmiştik.
+Bu işin içine girmemiz için işi biraz daha iyi kavrayabilmemiz için temel bir örnekti.
+Şimdide işi biraz daha ileri seviyeye taşıyıp real time çalışan bir chat uygulaması geliştiricez.
+
+Arayüz görünümü:
+
+Altta bir input ve buraya bir mesaj yazılıp gönderildiğinde yukarıdaki listeye düşecek.
+Aynı şekilde başka bir kullanıcıda yazdığında yine bu listeye düşecek ve bir sohbet uygulaması geliştirmiş olucaz.
+
+Her hangi bir authentication(kayıt olmadır, giriş yapmaktır vs) gibi bişiy olmayacak.
+Direkt olarak sayfayı her açan kişi buradan mesaj gönderebilecek.
+
+Bunu yapabilmemiz için backend'e ihtiyacımız var.
+
+Backend'i githubdan indirip çalıştırmak yeterli olacak.
+
+(JS için backend eğitimleri alınacak.)
+
+backend projesine nodemon kurulumu
+npm i nodemon
+
+backend içerisinde nodemon'u başlatmak için
+npm run nodemon
+
+Terminal çıktı:
+[nodemon] 2.0.15
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json  
+[nodemon] starting `node index.js`
+listening on *:3000
+
+--Böyleyse başarılı!
+
+Windows için redis kurulum.
+https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100
+
+.MSI indirip kurulabilir.
+
+vscode içinse extensions bölümünden redis tools indirip kurulabilir.
+
+
+Redis'i Projemizde Ne İçin Kullanıyoruz?
+
+Gelen mesajları veri tabanına kaydetmek için ve sonra gelen her hangi bir kullanıcınında geçmiş mesajları görebilmesi için kullanıcaz.
+(Kısacası bir veritabanı olarak kullanıyoruz.) Redis'in bir sürü kullanım amacı var.
