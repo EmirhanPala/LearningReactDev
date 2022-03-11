@@ -1,0 +1,13 @@
+Clienti inşa ederken ön plan:
+Bizim neye ihtiyacımız var?
+
+Bir inputa ihtiyacımız var inputun üzerindede bir chatlerin listeleneceği component'e ihtiyacımız var.
+
+Bu ikisini components dizini altında hazırlıyacağız.
+
+Ondan öncede yapmamız gereken şöyle bir işlem var.
+
+Context bölümü ile alaklı çok örnek yapamamıştık.
+Bu bölümde socket.io ile birlikte bu context'i kullanıcaz.
+Mesajlarımız context altında bulunacak ve context'in altından alıp listelicez veya
+O context'e yeni bir mesaj eklemeye çalışıcaz.

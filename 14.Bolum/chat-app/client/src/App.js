@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+/*
+App.js dosyamızın içerisine context'imizi dahil ediyoruz.
+*/
+import { ChatProvider } from './context/ChatContext';
+import Container from './components/Container';
+
+/*
+Bölüm-14: --> Chat Context
+
+Context'imizi hazırladık.
+Contextimizden sonra Container adında bir component oluşturduk. 
+Bu component altında ChatList ve ChatForm componentlerimizi hazırlayıp göstermiş olduk.
+Bundan sonrada gerekli style işlemlerimizi yapıcaz. Sonrasında socket.io bağlantısını yapmaya başlıyabiliriz.
+
+*/
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChatProvider>
+      <Container />
+    </ChatProvider>
   );
 }
 
