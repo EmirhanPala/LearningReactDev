@@ -36,6 +36,7 @@ io.on("connection", (socket) => {
 		Messages.upsert({ message });
 
 		//Sonrasındada bağlı olan diğer clientlara bunu emitliyoruz.
+		//receive-message kanalını dinlememiz gerekiyor.
 		socket.broadcast.emit("receive-message", message);
 	});
 

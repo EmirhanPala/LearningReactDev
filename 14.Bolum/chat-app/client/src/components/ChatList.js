@@ -1,4 +1,3 @@
-import React from 'react';
 /*
 Gönderilen mesajların listeleneceği alan burası.
 */
@@ -18,11 +17,12 @@ function ChatList() {
           Mesaj balonlarımız için ChatItem.js oluşturuyoruz. Ve ona buradan bir prop göndericez.
           */
           //bize gelen chat objesini item olarak gönderiyoruz.
-          messages.map((item, key) => (<ChatItem key={key} item={item} />
+          messages.map((item, key) => (
+          <ChatItem key={key} item={item} />
           ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default ChatList

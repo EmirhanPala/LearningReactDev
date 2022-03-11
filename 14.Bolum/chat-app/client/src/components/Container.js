@@ -1,18 +1,19 @@
 import { useEffect } from 'react';
+
 import ChatList from './ChatList';
 import ChatForm from './ChatForm';
+import { useChat } from '../context/ChatContext';
 
-import { init } from '../socketApi';
+import { init, subscribeChat } from '../socketApi';
 
 function Container() {
-  //didmount anında
+  const { setMessages } = useChat();
   useEffect(() => {
-    //backend'imize bağlantımızı sağladık.
     init();
-    /*
-    connection ilk gerçekleştiği anda bize bir data geliyor.
-    kaç mesaj varsa onlar elimize ulaşmış oluyor.
-    */
+    //subscribeChat'e yeni bir mesaj geldiğinde context'imizi güncellememiz lazım.
+    subscribeChat((message) => {
+      setMessages((prevState) => [...prevState, { message }]);
+    });
   }, [])
   return (
     <div className='App'>
