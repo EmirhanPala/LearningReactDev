@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 
 /*
 Context altında yapacağımız iş:
@@ -8,13 +8,19 @@ Mesajları listeliyecek ve O mesajları manipüle edecek fonksiyonu altta kalan 
 const ChatContext = createContext();
 
 //Provider'ımızı oluşturalım. Prop olarakda children'imizide alalım.
-export const ChatProvider = ({children}) => {
-    const [messages, setMessages] = useState([]);
+export const ChatProvider = ({ children }) => {
+    const [messages, setMessages] = useState([
+        { messages: "Selam" },
+        { messages: "Naber" }
+    ]);
     const values = {
         messages,
         setMessages,
     };
     return <ChatContext.Provider value={values}>{children}</ChatContext.Provider>
 }
-
-export default ChatContext;
+/*
+Tek tek context'i import edip tek tek kullanmaktansa önceki derslerde yaptığımız gibi 
+İşimizi kolaylaştırması için useContext'i kullanıcaz.
+*/
+export const useChat = () => useContext(ChatContext);
