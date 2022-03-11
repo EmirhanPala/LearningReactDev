@@ -11,16 +11,19 @@ Sorunlar-2:
 Sayfa yenilendiğinde en son hangi dil seçildiyse yenilendiğinde o dilden devam etmemesi.
 
 Bu 2 sorunu çözücez.
+
+
+//Mesajlarımızda data parametresi nasıl geçebiliriz?
 */
 
 const messages = {
   "tr-TR": {
     title: "Merhaba Dünya",
-    description: "3 yeni mesajınız var",
+    description: "{count} yeni mesajınız var",
   },
   "en-US": {
     title: "Hello World",
-    description: "You have 3 new messages",
+    description: "You have {count} new messages",
   }
 };
 
@@ -43,7 +46,7 @@ function App() {
         <FormattedMessage id="title" />
 
         <p>
-          <FormattedMessage id="description" />
+          <FormattedMessage id="description" values={{ count: 5 }} />
         </p>
 
         <br />
