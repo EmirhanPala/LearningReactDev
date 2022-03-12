@@ -33,3 +33,4 @@ npm i kütüphaneAdı
 - 🌱 https://getbootstrap.com/
 - 🌱 https://reactrouter.com/resources
 - 🌱 https://formatjs.io
+- 🌱 https://aggie.io/
