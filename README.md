@@ -24,6 +24,11 @@ npm install kütüphaneAdı
 npm i kütüphaneAdı
 ```
 
+## Test kodlarını çalışmak için
+
+```sh
+npm test
+```
 
 
 
