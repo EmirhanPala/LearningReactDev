@@ -1,0 +1,26 @@
+Bölüm-16: Testing
+
+Neden test yazarız?:
+Bir uygulama geliştiriyoruz. Bunun kayıt formu var, giriş formu var, giriş yapıldıktan sonra bir takım işlerde yapılmaya devam ediyor.
+Bunun gibi giriş ve kayıt olma işlemi 15-20 tane daha fonksiyon (component) olduğunu düşünelim. Farklı işlemleri yapan bileşenlerin olduğunu düşünün.
+
+Örnek:
+Kayıt formunu test ettik onayladık hiç bir problem yok.
+
+Giriş formunu yapmaya başladık bunuda test ettik onayladık bir problem yok.
+
+x y z diye bir sürü component yapmaya devam ettik ve bizim günün sonunda projemiz bittiğinde elimizde bir sürü componentimiz olacak.
+Bunların her biri başka başka işler yapıyor olacak.
+
+Kayıt formunu hazırladığımızda gerekli kodları yazdık sonra baktık gerçekten kayıt ediyormu etmiyormu? Gerçekten kayıt ettiğini görünce ordaki işlemi tamamladığımızı düşünüp
+giriş formunu yapmaya geçtik. Peki başka bir bileşeni hazırlarken eğer istemeden kayıt formuna veya giriş formuna bir zarar verdiysek onun doğru şekilde çalışmasını 
+Etkileyecek bir şey yapmış olabiliriz belki bunun farkında olmaya biliriz. Veya son componenti yapıyoruz. Son componenti yaptığımızda gidip sistemin tamamına bakmamız lazım.
+Deploy etmeden önce acaba gerçekten kayıt ediyormu?, Gerçekten giriş yapıyormu?, Giriş yaptıktan sonra x işlemini yapıyormu?, Y işlemini yapıyormu?, Z işlemini yapıyormu?
+Şeklinde her birine tek tek bakmamız lazımki uygulamamızı deploy edebilelim. Bu işin manuel yöntemi. Bu manuel yapılan işlemleri biz otomatize ettirebiliriz.
+Yani her bir birimin kendi içinde gerçekten doğru çalışıp çalışmadığını otomatize ettirecek kodu yazabiliriz. Dolayısıyla biz her işlem yaptıktan sonra 
+Her deploy yapmadan önce gidip sistemin tamamı gerçekten çalışıyormu? Çalışmıyormu? diye kontrol etmemize gerek kalmıyacak. Bu işlemi zaten bizim için yapacak
+bir kod bloğu olacak. İşte biz bu noktada ne diyoruz? Gerekli bu işlemler için bu otomasyon işlemleri için test yazmamız gerekiyor diyoruz.
+
+Test yazmanın çeşitleri var:
+Oralara girmiyicez ama biz bu işin unit test kısmında olucaz.
+Yani her componentin kendi içinde, biriminde doğru çalıştığına emin olmaya çalışıcaz.
