@@ -30,6 +30,9 @@ npm i kütüphaneAdı
 npm test
 ```
 
+# NPMJS Component Paylaşmak
+
+React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinleri ilgili proje dizinlerine yerleştirmek için [`create-react-library`](https://github.com/transitive-bullshit/create-react-library) repoyu kullanıcaz.
 
 
 **Kullanılan Kaynaklar** 
