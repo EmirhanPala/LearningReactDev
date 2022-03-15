@@ -39,3 +39,4 @@ npm test
 - 🌱 https://reactrouter.com/resources
 - 🌱 https://formatjs.io
 - 🌱 https://aggie.io/
+- 🌱 https://npmjs.com
