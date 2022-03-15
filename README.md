@@ -43,3 +43,4 @@ React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinler
 - 🌱 https://formatjs.io
 - 🌱 https://aggie.io/
 - 🌱 https://npmjs.com
+- 🌱 https://remarkablemark.org/npm-package-name-checker/
