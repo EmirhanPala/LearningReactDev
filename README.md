@@ -39,6 +39,15 @@ npm upgrade minor -f
 
 ```
 
+## React build ve Deploy
+
+```sh
+npm run build //Dosyaları terminal üzerinde seçili olan react'ın içerisine kurar.
+React'ı çalıştırmak için gerekli olan build klasörünün içine girilir.
+cd build
+Deploy etmek içinde
+npx surge
+```
 
 # NPMJS Component Paylaşmak
 
