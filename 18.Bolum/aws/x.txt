@@ -1,0 +1,2 @@
+AWS EC2 Üzerine Deploy İşlemleri
+https://aws.amazon.com/tr/
