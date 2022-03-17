@@ -30,6 +30,16 @@ npm i kütüphaneAdı
 npm test
 ```
 
+## Semantic Versiyonlama
+Versiyonlama yapılırken ortadaki sayı artarsa onun sağındaki sıfırlanır veya en baştaki artarsa onun sağındakilerde sıfırlanarak ilerler.
+
+```sh
+npm version patch --force
+npm upgrade minor -f
+
+```
+
+
 # NPMJS Component Paylaşmak
 
 React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinleri ilgili proje dizinlerine yerleştirmek için [`create-react-library`](https://github.com/transitive-bullshit/create-react-library) repoyu kullanıcaz.
