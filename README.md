@@ -42,8 +42,9 @@ npm upgrade minor -f
 ## React build ve Deploy
 
 ```sh
-npm run build //Dosyaları terminal üzerinde seçili olan react'ın içerisine kurar.
-React'ı çalıştırmak için gerekli olan build klasörünün içine girilir.
+npm run build 
+//Dosyaları terminal üzerinde seçili olan reactın içerisine kurar.
+Reactı çalıştırmak için gerekli olan build klasörünün içine girilir.
 cd build
 Deploy etmek içinde
 npx surge
@@ -63,3 +64,6 @@ React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinler
 - 🌱 https://aggie.io/
 - 🌱 https://npmjs.com
 - 🌱 https://remarkablemark.org/npm-package-name-checker/
+- 🌱 https://surge.sh/
+- 🌱 https://www.netlify.com/
+- 🌱 https://aws.amazon.com/tr/
