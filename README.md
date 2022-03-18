@@ -67,3 +67,8 @@ React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinler
 - 🌱 https://surge.sh/
 - 🌱 https://www.netlify.com/
 - 🌱 https://aws.amazon.com/tr/
+- 🌱 https://react-query.tanstack.com/ (Server statemiz ile local statemizi, client statemizi senkronize etmemize yarayan bir araç. Her hangi bir veri çekiceğimiz zaman veya bir post işlemi yapıcağımız zaman kullanılabilir. Global state'i yönetmek için kullanılabilecek araçlardan bir tanesi)
+- 🌱 https://tr.reactjs.org/docs/context.html
+- 🌱 https://jwt.io/
+- 🌱 https://chakra-ui.com/
+- 🌱 https://ant.design/
