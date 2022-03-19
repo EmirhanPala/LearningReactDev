@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import React from 'react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
 
