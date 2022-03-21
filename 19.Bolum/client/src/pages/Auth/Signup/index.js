@@ -5,10 +5,10 @@ import validationSchema from './validations';
 
 import { fetchRegister } from '../../../api';
 
-import {useAuth} from '../../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext';
 
-function Signup() {
-  const {login} = useAuth();
+function Signup({ history }) {
+  const { login } = useAuth();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -22,6 +22,8 @@ function Signup() {
       try {
         const registerResponse = await fetchRegister({ email: values.email, password: values.password });
         login(registerResponse);
+
+        history.push("/profile");
         console.log(registerResponse);
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
