@@ -8,7 +8,7 @@ import { useBasket } from '../../contexts/BasketContext';
 import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
 
 function Navbar() {
-    const { loggedIn } = useAuth();
+    const { loggedIn, user } = useAuth();
     const { items } = useBasket();
     console.log(loggedIn);
     return (
@@ -48,6 +48,17 @@ function Navbar() {
                             </Link>
                         )
                     }
+
+                    {
+                        user?.role === "admin" && (
+                            <Link to="/admin">
+                                <Button colorScheme="pink" variant="ghost">
+                                    Admin
+                                </Button>
+                            </Link>
+                        )
+                    }
+
                         <Link to="/profile">
                             <Button>Profile</Button>
                         </Link>
