@@ -1,7 +1,8 @@
 import { useAuth } from '../../contexts/AuthContext';
-import { Text, Button } from '@chakra-ui/react';
+import { Text, Button, Stack, Avatar, AvatarBadge } from '@chakra-ui/react';
+import { Descriptions } from 'antd';
 
-function Profile({history}) {
+function Profile({ history }) {
     const { user, logout } = useAuth();
     const handleLogout = async () => {
         logout(() => {
@@ -9,15 +10,22 @@ function Profile({history}) {
         });
     };
     return (
-        
+
         <div>
             <Text fontSize="22">Profile</Text>
-            <code>
-                {
 
-                    JSON.stringify(user)
-                }
-            </code>
+
+            <Stack direction='row' spacing={4}>
+                <Avatar>
+                    <AvatarBadge boxSize='1.25em' bg='green.500' />
+                </Avatar>
+            </Stack>
+
+            <Descriptions>
+
+                <Descriptions.Item label="UserName">{user.email}</Descriptions.Item>
+                <Descriptions.Item label="Role">{user.role}</Descriptions.Item>
+            </Descriptions>
 
             <br />
             <br />

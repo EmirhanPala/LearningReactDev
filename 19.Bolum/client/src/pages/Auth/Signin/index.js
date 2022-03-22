@@ -8,7 +8,8 @@ import { fetchLogin } from '../../../api';
 import { useAuth } from '../../../contexts/AuthContext';
 
 function Signin({ history }) {
-  const { login } = useAuth();
+  const { login, loggedIn } = useAuth();
+  //console.log("login", loggedIn);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -31,6 +32,7 @@ function Signin({ history }) {
     },
   });
 
+  
   return (
     <div>
       <Flex align="center" width="full" justifyContent="center">
@@ -61,6 +63,13 @@ function Signin({ history }) {
               </FormControl>
               <Button mt="4" width="full" type="submit">Signin</Button>
             </form>
+          </Box>
+          <Box>
+            {loggedIn ?
+              <Alert justifyContent="center" status="success">
+                Giriş başarılı yönlendiriliyorsunuz...
+              </Alert>
+            : ""}
           </Box>
         </Box>
       </Flex>

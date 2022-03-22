@@ -1,17 +1,19 @@
 import React from 'react';
 
-import {Table, Thead, Tbody, Tr, Th, Td, TableCaption, Text} from '@chakra-ui/react';
+import { Table, Modal, Button, Thead, Tbody, Tr, Th, Td, TableCaption, Text, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Box } from '@chakra-ui/react';
 import { useQuery } from 'react-query';
-import {fetchOrders} from '../../../api';
+import { fetchOrders } from '../../../api';
+import { Link } from 'react-router-dom';
 
 function Orders() {
-  const {isLoading, isError, data, error} = useQuery("admin:orders", fetchOrders);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isLoading, isError, data, error } = useQuery("admin:orders", fetchOrders);
 
-  if (isLoading){
+  if (isLoading) {
     return <div>Loading...</div>
   }
 
-  if (isError){
+  if (isError) {
     return <div>Error {error.message}</div>
   }
 
@@ -19,6 +21,8 @@ function Orders() {
 
   return (
     <div>
+
+
       <Text fontSize="2xl" p={5}>Orders</Text>
 
       <Table variant="simple">
@@ -28,6 +32,7 @@ function Orders() {
             <Th>User</Th>
             <Th>Address</Th>
             <Th isNumeric>Items</Th>
+            <Th>Item List</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -37,12 +42,46 @@ function Orders() {
                 <Td>{item.user.email}</Td>
                 <Td>{item.adress}</Td>
                 <Td isNumeric>{item.items.length}</Td>
+                <Td>
+                  <Button onClick={onOpen}>
+                    <Link to={`/admin/orders/${item._id}`}>
+                      Open List
+                    </Link>
+                  </Button>
+                  <Modal onClose={onClose} isOpen={isOpen} isCentered>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>Item List</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        {item.items.map((veri) => (
+                          <>
+                          test
+                          </>
+                        ))}
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button onClick={onClose}>Close</Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+                </Td>
               </Tr>
             ))
+            /*
+            {item.items.map((veri) => (
+                    <>
+                      
+                    </>
+                  ))}
+            */
+            //<code>{JSON.stringify([item.items])}</code>
           }
         </Tbody>
       </Table>
+
     </div>
+
   )
 }
 

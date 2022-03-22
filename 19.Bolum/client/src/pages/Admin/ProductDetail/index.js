@@ -31,13 +31,13 @@ function ProductDetail() {
     const handleSubmit = async (values, bag) => {
 
         //console.log("submitted");
-        message.loading({content:"Loading...", key: "product_update"});
-        try{
+        message.loading({ content: "Loading...", key: "product_update" });
+        try {
             await updateProduct(values, product_id);
             message.success({
                 content: "The product successfully updated", key: "product_update", duration: 2,
             });
-        }catch(e){
+        } catch (e) {
             message.error("The product does not updated.")
         }
     };

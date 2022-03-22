@@ -29,7 +29,7 @@ function ProductDetail() {
     return (
         <div>
             <Button colorScheme={findBasketItem ? "pink" : "green"} onClick={() => addToBasket(data, findBasketItem)}>
-                { findBasketItem ? "Remove from basket" : "Add to basket" }
+                {findBasketItem ? "Remove from basket" : "Add to basket"}
             </Button>
 
             <Text as="h2" fontSize="2xl">
@@ -44,7 +44,9 @@ function ProductDetail() {
             </p>
 
             <Box margin="10">
-                <ImageGallery items={images} showThumbnails={false} />
+                <Box width="25%">
+                    <ImageGallery items={images} showThumbnails={false} />
+                </Box>
             </Box>
         </div>
     )

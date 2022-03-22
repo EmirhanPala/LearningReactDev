@@ -42,7 +42,7 @@ function Basket() {
                         <ul style={{ listStyleType: "decimal" }}>
                             {items.map((item) => (
                                 <li key={items._id} style={{ marginBottom: 15 }}>
-                                    <Link to={`/product${item._id}`}>
+                                    <Link to={`/product/${item._id}`}>
                                         <Text fontSize="18">{item.title} - {item.price} TL</Text>
                                         <Image
                                             htmlWidth={200}
