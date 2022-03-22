@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { fetchProductsList, deleteProduct } from '../../../api';
 
 import { Link } from 'react-router-dom';
-import { Text } from '@chakra-ui/react';
+import { Text, Button, Flex } from '@chakra-ui/react';
 import { Table, Popconfirm } from 'antd';
 /*
 useMutation: ile silme ve ekleme gibi işlemleri gerçekleştirebiliyoruz.
@@ -81,8 +81,12 @@ function Products() {
 
   return (
     <div>
-      <Text fontSize="2xl" p="5">Products</Text>
-
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontSize="2xl" p="5">Products</Text>
+        <Link to="/admin/products/new">
+          <Button>New</Button>
+        </Link>
+      </Flex>
       <Table dataSource={data} columns={columns} rowKey="_id" />
     </div>
   )
