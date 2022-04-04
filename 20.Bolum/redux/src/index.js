@@ -5,36 +5,57 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 
-
-
 function userReducer(state = "", action) {
   return state;
 }
 function productReducer(state = [], action) {
-  return state;
+  switch (action.type) {
+    case "userUpdate":
+      return action.payload;
+
+    default: 
+      return state;
+  }
 }
 
 const rootReducer = combineReducers({
   products: productReducer,
-  user: userReducer
+  user: userReducer,
 });
 
 const action = {
   type: "changeTheState",
   payload: {
-    newState: "my new state"
-  }
+    newState: "my new state",
+  },
 };
 /*
-Reducerlarımıza initial state vermek istediğimizde aşağıdaki gibi kullanabiliyoruz.
+Redux devtoolsuda aşadaki örnekteki gibi ekliyoruz.
++  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 */
-const store = createStore(rootReducer, {
-  products: [{
-    name: "Samsung",
-    type: "TV"
-  }],
-  user: "Emirhan"
-});
+const store = createStore(
+  rootReducer,
+  {
+    products: [
+      {
+        name: "Samsung",
+        type: "TV",
+      },
+    ],
+    user: "Emirhan",
+  },
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+const updateUserActions = {
+  type: "userUpdate",
+  payload: {
+    user: "Emirhan Test",
+  },
+};
+
+store.dispatch(updateUserActions);
+
 console.log(store.getState());
 
 store.subscribe(() => {

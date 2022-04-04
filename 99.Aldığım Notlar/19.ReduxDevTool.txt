@@ -1,0 +1,3 @@
+Redex DevTools:
+Redux uygulaması geliştirirken uygulama storemizin ne durumda olduğunu aradaki bir önceki state ile bir sonraki state arasındaki farkları gibi
+bir çok şeyi görebiliyoruz. "REAL TIME" olarak. O yüzden bu toolsu kullanıcaz.
