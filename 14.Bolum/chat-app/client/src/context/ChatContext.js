@@ -9,8 +9,11 @@ const ChatContext = createContext();
 
 //Provider'ımızı oluşturalım. Prop olarakda children'imizide alalım.
 export const ChatProvider = ({ children }) => {
+    const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
     const values = {
+        name,
+        setName,
         messages,
         setMessages,
     };

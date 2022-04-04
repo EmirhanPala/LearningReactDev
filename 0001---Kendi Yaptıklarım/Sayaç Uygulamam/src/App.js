@@ -9,8 +9,11 @@ import IconButton from '@mui/material/IconButton';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-
-
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,8 +46,23 @@ function App() {
         </Typography>
         <ProTip />
 
-        <Box sx={{ my: 4 }}>
-          <Box textAlign="center">
+        <Box textAlign="center" sx={{ my: 4 }}>
+          <Box>
+            <FormControl variant="standard">
+              <InputLabel htmlFor="input-with-icon-adornment">
+                What's your name?
+              </InputLabel>
+              <Input
+                id="input-with-icon-adornment"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </Box>
+          <Box m={4} textAlign="center">
             Counter: {count}
           </Box>
           <Box m={4} textAlign="center">

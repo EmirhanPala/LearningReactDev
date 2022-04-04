@@ -6,7 +6,7 @@ Backend'imize mesajın iletilmesi:
 */
 export const init = () => {
     console.log("Connecting...");
-    socket = io("http://localhost:3000", {
+    socket = io("http://192.168.1.195:3000", {
         transports: ["websocket"],
     });
 
@@ -22,7 +22,7 @@ export const subscribeChat = (cb) => {
     if(!socket) return;
 
     socket.on("receive-message", (message) => {
-        console.log("Yeni mesaj var", message);
+        //console.log("Yeni mesaj var", message);
         cb(message);
     });
 };
@@ -31,7 +31,7 @@ export const subscribeInitialMessages = (cb) => {
     if(!socket) return;
 
     socket.on("message-list", (messages) => {
-        console.log("Initial", messages);
+        //console.log("Initial", messages);
         cb(messages);
     });
 }
