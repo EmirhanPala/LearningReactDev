@@ -5,6 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 
+import { Provider } from "react-redux";
+/*
+Provider Nedir?
+Redux storenizin react uygulamanız içerisinde kullanılabilir, erişilebilir olması için bunu provider adı verilen nesne ile
+sarmalamanız gerekiyor. Bu providerı uygulamanızın en dışına koymanız ve bütün componentlerinizi bununla sarmalamanız gerekiyor.
+Bu react redux modülü altında bulunan bir nesnedir.
+*/
+
 function userReducer(state = "", action) {
   return state;
 }
@@ -13,7 +21,7 @@ function productReducer(state = [], action) {
     case "userUpdate":
       return action.payload;
 
-    default: 
+    default:
       return state;
   }
 }
@@ -29,10 +37,7 @@ const action = {
     newState: "my new state",
   },
 };
-/*
-Redux devtoolsuda aşadaki örnekteki gibi ekliyoruz.
-+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-*/
+
 const store = createStore(
   rootReducer,
   {
@@ -47,17 +52,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const updateUserActions = {
-  type: "userUpdate",
-  payload: {
-    user: "Emirhan Test",
-  },
-};
-
-store.dispatch(updateUserActions);
-
-console.log(store.getState());
-
 store.subscribe(() => {
   console.log("Store updated", store.getState());
 });
@@ -65,9 +59,18 @@ store.subscribe(() => {
 store.dispatch(action);
 console.log(store.getState());
 
+/*
+Providerimizi burada app ile sarmalıyoruz.
+Bu provideri yazdıktan sonra bir parametre alıyor.
+store={store} demeniz gerekiyor. Yani oluşturduğunuz store neyse onu burada tanımlanız gerekiyor.
+
+Şuanda redux storemiz react uygulamamız içerisinde erişilebilir duruma geldi.
+*/
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
