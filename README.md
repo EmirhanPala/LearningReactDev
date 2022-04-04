@@ -72,3 +72,4 @@ React kütüphanesi oluşturabilmek için gerekli olan bütün dosya ve dizinler
 - 🌱 https://jwt.io/
 - 🌱 https://chakra-ui.com/
 - 🌱 https://ant.design/
+- 🌱 https://github.com/zalmoxisus/redux-devtools-extension (Redux DevTools)
