@@ -3,52 +3,36 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 
-/* Dispatch:
-Store'mizi Dispatch methoduyla nasıl güncelliyeceğimizi görücez.
-
+/* 
+combineReducer ile multi reducer kullanımı:
+Birden fazla bir sürü reducer'imiz olacak. O yüzden bu reducerlarımızı birleştirmemiz gerekiyor.
+Burdada combineReducers adında methodumuz var. Bunu kullanarak yapabiliyoruz.
 */
 
-/*
-Action'u ekledikten sonra burada reducer'imiz 2 parametre alıyor.
-1.State
-2.Action
-*/
-
-function reducer(state, action) {
-  //console.log(action);
-  /* Reducerlar kendisine gönderilen datayı, state'i güncelliyerek yerine yeni bir state döner demiştik.
-  İşte burada biz onu yaptık. Dedikki
-  Gönderilen action tipi changeTheState ise bana yeni state'i dön.
-  Eğer böyle bir ifade yoksa default olarak state'i dön diyoruz.
- */
-  if (action.type === "changeTheState") {
-    return action.payload.newState;
-  }
-  return "state";
+//Ecma Script'in yeni versiyonuyla birlikte default bir eşitleme yapabiliyoruz. State'e default olarak bir undefined filan gelir diye 
+//Boş bir array ve string veriyoruz.
+function userReducer(state = "", action) {
+  return state;
 }
-const store = createStore(reducer);
+function productReducer(state = [], action) {
+  return state;
+}
+
+//Yapmamız gereken şey burada reducerları birleştirmek.
+const rootReducer = combineReducers({
+  products: productReducer,
+  user: userReducer
+});
+//Storeye vermemiz gerekirkende rootReducer'i vericez.
+const store = createStore(rootReducer);
 console.log(store.getState());
 
 /*
-Action'un tipini burada belirttik.
-İlgili data neyse onu göndermemiz gerekiyor. Bunu genelde payload property altında gönderiyoruz.
-*/
-const action = {
-  type: "changeTheState",
-  payload: {
-    newState: "my new state",
-  },
-};
-
-store.dispatch(action);
-console.log(store.getState());
-
-/*
-Tekrarlayalım:
-Reducerlar store'deki ilgili datayı ilgili stateyi alıp. Üzerine vermiş olduğumuz payloaddaki data ile güncelliyerek.
-Yenisini döner ve daha sonra store bu şekilde güncellenmiş olur.
+combineReducer ile multi reducer kullanma işlemini öğrendik. rootReducer oluşturup buna combineReducers'imizi tanımladık ve elimizdeki
+reducerlarımızı içerisinde birleştirdik ve createStore'da rootReducerimizi verdik ve store.getState dediğimizde ilgili storeyi
+consolemizde görüntüleyebildik.
 */
 
 ReactDOM.render(
