@@ -4,27 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
-
 import { Provider } from "react-redux";
+
+import userReducer from "./reducers/userReducer";
+import productReducer from "./reducers/productReducer";
+
 /*
-Provider Nedir?
-Redux storenizin react uygulamanız içerisinde kullanılabilir, erişilebilir olması için bunu provider adı verilen nesne ile
-sarmalamanız gerekiyor. Bu providerı uygulamanızın en dışına koymanız ve bütün componentlerinizi bununla sarmalamanız gerekiyor.
-Bu react redux modülü altında bulunan bir nesnedir.
+Dizin yapısının oluşturulması:
+Şuanda reducerlerimiz actionslarımız hep bir dosyada bulunuyor. Index üzerinde bunları bir dosya dizin sistemi içerisine dahil etmemiz gerekiyor.
+Filestracker oluşturmamız gerekiyor. 
 */
-
-function userReducer(state = "", action) {
-  return state;
-}
-function productReducer(state = [], action) {
-  switch (action.type) {
-    case "userUpdate":
-      return action.payload;
-
-    default:
-      return state;
-  }
-}
 
 const rootReducer = combineReducers({
   products: productReducer,
@@ -59,13 +48,6 @@ store.subscribe(() => {
 store.dispatch(action);
 console.log(store.getState());
 
-/*
-Providerimizi burada app ile sarmalıyoruz.
-Bu provideri yazdıktan sonra bir parametre alıyor.
-store={store} demeniz gerekiyor. Yani oluşturduğunuz store neyse onu burada tanımlanız gerekiyor.
-
-Şuanda redux storemiz react uygulamamız içerisinde erişilebilir duruma geldi.
-*/
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
