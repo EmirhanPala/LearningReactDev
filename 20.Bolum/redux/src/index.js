@@ -5,11 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 
-/*
-Store Subscribe:
-Storede her hangi bir değişiklik olduğunda bu değişiklikten haberdar olmak istersek bu methodu kullanabiliriz.
 
-*/
 
 function userReducer(state = "", action) {
   return state;
@@ -29,13 +25,18 @@ const action = {
     newState: "my new state"
   }
 };
-
-const store = createStore(rootReducer);
+/*
+Reducerlarımıza initial state vermek istediğimizde aşağıdaki gibi kullanabiliyoruz.
+*/
+const store = createStore(rootReducer, {
+  products: [{
+    name: "Samsung",
+    type: "TV"
+  }],
+  user: "Emirhan"
+});
 console.log(store.getState());
 
-/*
-Actions dispatch olduğunda bu işlem gerçekleşmiş olacak.
-*/
 store.subscribe(() => {
   console.log("Store updated", store.getState());
 });
