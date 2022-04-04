@@ -9,12 +9,6 @@ import { Provider } from "react-redux";
 import userReducer from "./reducers/userReducer";
 import productReducer from "./reducers/productReducer";
 
-/*
-Dizin yapısının oluşturulması:
-Şuanda reducerlerimiz actionslarımız hep bir dosyada bulunuyor. Index üzerinde bunları bir dosya dizin sistemi içerisine dahil etmemiz gerekiyor.
-Filestracker oluşturmamız gerekiyor. 
-*/
-
 const rootReducer = combineReducers({
   products: productReducer,
   user: userReducer,

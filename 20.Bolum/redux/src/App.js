@@ -1,5 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Connect } from "react-redux";
+/*
+Connect ile component'e bağlanmak:
+Storemizi componentimize bağlamak için kullanacağımız connect adında bir nesne var.
+react-redux altında bulunuyor ve projemize dahil ediyoruz.
+*/
 
 function App() {
   return (
@@ -22,4 +28,10 @@ function App() {
   );
 }
 
-export default App;
+/*
+Connectimizi buraya yazıyoruz.
+Şöyle bir yapısı var.
+Componentimizi ikinci parantezin içerisinde parametre olarak belirtmemiz gerekiyor.
+
+*/
+export default connect()(App);
