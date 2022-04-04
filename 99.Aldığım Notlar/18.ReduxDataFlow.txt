@@ -1,0 +1,40 @@
+View:
+Kullanıcı web sayfasını açtı karşılaştığı ekran neyse o viewdir.
+
+Bu ekranda bir butona bastığını farz edelim. Şöyle olsun bir tane input olsun buraya ismini yazdı ve save butonuna bastı.
+Bastığı anda nolmuş oldu? Bir "Actions"(Aksiyon) gerçekleşmiş oldu.
+
+Actions:
+Burdaki kısımda napıcaz? İnputa yazmış olduğu ismi "Store"a "Dispatcher" etmemiz lazım Yani göndermemiz lazım.
+Actionsda ne yapıyoruz kullanıcının yaptığı aksiyon neyse örn: Kullanıcıyı kaydetmek nedir userSave bu userSave'i ve yazmış olduğu 
+isim neyse onu alıcaz ve onu alıp store'ye dispatcher edicez.
+"Dispatcher" etmek demek: Actionsdaki data'yı storeye göndermek.
+ 
+ Şimdi bu "Storeye geldikten sonra
+
+ Store:
+ İlgili yerde tek bir store var demiştik. Bunun altındada "Reducer"ler var. Bu reducer kavramıylada ilk kez karşılaşıyorsunuz.
+ 
+ Şimdi reducer demek:
+ Tek bir store var uygulamada demiştik ve bu store'da bir javascript objesiydi. 
+ store = {
+     user: userReducer,
+     contacts: contactsReducer,
+     product: productReducer
+ }
+ //Aslında user dediğimiz statenin karşılığı userReducer, contacts'inki contactsReducer
+ Yani kullanıcıları tuttuğunuz yapı neyse ona reducer adı veriliyor ve reducerin yaptığı şöyle bir iş var.
+ Store tarafından sağlanan stateyi alıyor. İlgili değişiklik neyse yapılması gereken değişiklik neyse state üzerinde o değişikliği yapıyor ve tekrardan
+ state'e göndererek store'e göndererek o storeyi güncellemiş oluyor.
+
+Kısa tekrar:
+Tek bir storemiz var. Bu store altında bizim reducerlerimiz var. Bu reducerları uygulamanıza göre bölüyorsunuz bu uygulamanıza göre değişecektir.
+Reducerlar store tarafından sağlanan state'i alır. İstenildiği şekilde günceller ve güncellenmiş datayı store tekrardan göndermiş olur.
+Bu store üzerinde tek bir state var ve bu statede tekrardan view'a gönderilmiş olur.
+
+Ekstra tekrar:
+Bir "View"imiz var. Kullanıcı ekranı açtı ve bir "Actions" gerçekleştirdi. Bir butona bastı, bir şeye tıkladı, bir şeyler yazdı. Her hangi bir şey olabilir.
+Yaptığı işlemle alakalı string datayı button click veya form submit gibi ifade bunu ve yazmış olduğu yani göndermek istediğiniz data neyse buna payload olarak adlandırıcaz
+aslında onu yüklüyorsunuz ve bunu storeye "Dispatcher" ediyorsunuz. "Dispatch" etmek "Actions"u artık "Store"e gönderiyor olmak demek.
+"Store" geldikten sonra bu data "Store" ilgili "Reducer"a ilgili state'i sağlıyor. Daha sonra "Reducer" bu state'i alıp.
+"Actions"da göndermiş olduğumuz data göre güncelliyor ve tekrardan bunu "Store"a güncelliyen ve "Store"da güncellendikten sonra view'imizde güncellenmiş oluyor.
