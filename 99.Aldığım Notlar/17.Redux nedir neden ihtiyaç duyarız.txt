@@ -1,0 +1,11 @@
+Redux bir javascript kütüphanesi react'in olmazsa olmazı ve bir parçası diye düşünmeyin.
+Redux tamamen farklı bir javascript kütüphanesi
+Javascript uygulamalarında state'i yönetmeyi sağlayan bir kütüphanedir.
+React ile adının çok fazla birlikte geçiyor olmasının sebebi birlikte popüler olmaları ve birlikte entegre bir şekilde çok iyi çalışıyor olmaları.
+Redux application state management olarak geçiyor literatürde yani uygulamanın durum yöneticisi olarak geçiyor diye özetleyebiliriz.
+React uygulaması geliştirirken bu zamana kadar hep stateler üzerinden işlemlerimizi gerçekleştirmiştik.
+Redux dediğimiz bu yapıda stateleri yönetmemizi sağlayan bir kütüphane.
+Bildiğiniz gibi bizim componentlerimizin içerisinde statelerimiz bulunuyordu ve componentlerimizin sayısı arttıkça bu statelerde doğal olarak sayısal olarak
+artmış oluyor ve belli bir component sayısına ulaşıldıktan sonra gerçekten bunu yönetmek çok zorlaşabiliyor. Belki ufak tefek uygulamalarda bunu fark etmemiş
+olabilirsiniz bu zamana kadar ama geniş çaplı, kapsamlı bir uygulama, proje içerisine girdiğinizde bunun farkına varıyorsunuz.
+İşte bu noktadada redux'ı kullanıyor olmak gerekiyor.
