@@ -5,14 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 
-/* 
-combineReducer ile multi reducer kullanımı:
-Birden fazla bir sürü reducer'imiz olacak. O yüzden bu reducerlarımızı birleştirmemiz gerekiyor.
-Burdada combineReducers adında methodumuz var. Bunu kullanarak yapabiliyoruz.
+/*
+Store Subscribe:
+Storede her hangi bir değişiklik olduğunda bu değişiklikten haberdar olmak istersek bu methodu kullanabiliriz.
+
 */
 
-//Ecma Script'in yeni versiyonuyla birlikte default bir eşitleme yapabiliyoruz. State'e default olarak bir undefined filan gelir diye 
-//Boş bir array ve string veriyoruz.
 function userReducer(state = "", action) {
   return state;
 }
@@ -20,20 +18,30 @@ function productReducer(state = [], action) {
   return state;
 }
 
-//Yapmamız gereken şey burada reducerları birleştirmek.
 const rootReducer = combineReducers({
   products: productReducer,
   user: userReducer
 });
-//Storeye vermemiz gerekirkende rootReducer'i vericez.
+
+const action = {
+  type: "changeTheState",
+  payload: {
+    newState: "my new state"
+  }
+};
+
 const store = createStore(rootReducer);
 console.log(store.getState());
 
 /*
-combineReducer ile multi reducer kullanma işlemini öğrendik. rootReducer oluşturup buna combineReducers'imizi tanımladık ve elimizdeki
-reducerlarımızı içerisinde birleştirdik ve createStore'da rootReducerimizi verdik ve store.getState dediğimizde ilgili storeyi
-consolemizde görüntüleyebildik.
+Actions dispatch olduğunda bu işlem gerçekleşmiş olacak.
 */
+store.subscribe(() => {
+  console.log("Store updated", store.getState());
+});
+
+store.dispatch(action);
+console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>
